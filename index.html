@@ -383,6 +383,7 @@
   .fam.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset;}
   .rec-fam{font-size:11.5px;margin-top:2px;line-height:1.35;}
   .badge .sw{width:10px;height:10px;vertical-align:-1px;margin-right:4px;}
+  .fam > span strong{color:var(--text);font-weight:700;}
   .fert{font-size:11.5px;line-height:1.5;color:var(--text-dim);margin-top:8px;}
   /* pulsante "i" e scheda ugello */
   .fam{position:relative;padding-right:30px;}
@@ -961,8 +962,8 @@ const FAM_I18N = {
        colors:{green:'Verde',yellow:'Giallo',lilac:'Lilla',blue:'Blu',red:'Rosso',brown:'Marrone',grey:'Grigio',white:'Bianco',lightblue:'Azzurro',orange:'Arancio',olive:'Oliva',lightgreen:'Verde chiaro'},
        famDesc:{AIXR:"ventaglio a induzione d'aria, range esteso", AI:"ventaglio a induzione d'aria", XR:'ventaglio a range esteso, goccia fine', AITTJ60:"doppio ventaglio 60° a induzione d'aria",
                 AI3070:"doppio ventaglio asimmetrico 30°/70° a induzione d'aria", TJ60:'doppio ventaglio 60°, goccia fine', TXB:'cono vuoto, goccia molto fine', SJ7:'7 fili liquidi per concimi'},
-       famUse:{ diserbo:{AIXR:'Sistemici · antideriva · uso generale', AI:'Sistemici · massima riduzione deriva', XR:'Di contatto · massima copertura', AITTJ60:'Post-emergenza di contatto (suggerito)'},
-                fungins:{AITTJ60:'Copertura e penetrazione, antideriva', AI3070:'Grano e orzo · copertura della spiga', TXB:'Vegetazione fitta · goccia fine', TJ60:'Di contatto · massima copertura'},
+       famUse:{ diserbo:{AIXR:'Sistemici · antideriva · uso generale', AI:'Sistemici · massima riduzione deriva', XR:'Di contatto · massima copertura', AITTJ60:'**Antideriva** · post-emergenza di contatto (suggerito)'},
+                fungins:{AITTJ60:'**Antideriva** · copertura e penetrazione', AI3070:'Grano e orzo · copertura della spiga', TXB:'Vegetazione fitta · goccia fine', TJ60:'Di contatto · massima copertura'},
                 concime:{SJ7:'Concimi liquidi (es. UAN) · niente ustioni fogliari'} },
        info:'Scheda ugello', rTitle:'Valutazione TeeJet', gHerb:'Erbicidi', gFung:'Fungicidi', gIns:'Insetticidi', gOther:'Altro',
        cSoil:'Incorporati nel suolo', cCont:'Per contatto', cSys:'Sistemici', cDrift:'Controllo deriva', cPwm:'Controllo ugelli PWM',
@@ -983,8 +984,8 @@ const FAM_I18N = {
        colors:{green:'Green',yellow:'Yellow',lilac:'Lilac',blue:'Blue',red:'Red',brown:'Brown',grey:'Grey',white:'White',lightblue:'Light blue',orange:'Orange',olive:'Olive',lightgreen:'Light green'},
        famDesc:{AIXR:'air induction extended range flat fan', AI:'air induction flat fan', XR:'extended range flat fan, fine droplets', AITTJ60:'air induction twin flat fan 60°',
                 AI3070:'air induction asymmetric twin fan 30°/70°', TJ60:'twin flat fan 60°, fine droplets', TXB:'hollow cone, very fine droplets', SJ7:'7 liquid streams for fertiliser'},
-       famUse:{ diserbo:{AIXR:'Systemic · low drift · general use', AI:'Systemic · maximum drift reduction', XR:'Contact · maximum coverage', AITTJ60:'Post-emergence contact (suggested)'},
-                fungins:{AITTJ60:'Coverage and penetration, low drift', AI3070:'Wheat and barley · head coverage', TXB:'Dense canopy · fine droplets', TJ60:'Contact · maximum coverage'},
+       famUse:{ diserbo:{AIXR:'Systemic · low drift · general use', AI:'Systemic · maximum drift reduction', XR:'Contact · maximum coverage', AITTJ60:'**Low drift** · post-emergence contact (suggested)'},
+                fungins:{AITTJ60:'**Low drift** · coverage and penetration', AI3070:'Wheat and barley · head coverage', TXB:'Dense canopy · fine droplets', TJ60:'Contact · maximum coverage'},
                 concime:{SJ7:'Liquid fertiliser (e.g. UAN) · no leaf burn'} },
        info:'Nozzle sheet', rTitle:'TeeJet rating', gHerb:'Herbicides', gFung:'Fungicides', gIns:'Insecticides', gOther:'Other',
        cSoil:'Soil incorporated', cCont:'Contact', cSys:'Systemic', cDrift:'Drift control', cPwm:'PWM nozzle control',
@@ -1005,8 +1006,8 @@ const FAM_I18N = {
        colors:{green:'Verde',yellow:'Amarillo',lilac:'Lila',blue:'Azul',red:'Rojo',brown:'Marrón',grey:'Gris',white:'Blanco',lightblue:'Azul claro',orange:'Naranja',olive:'Oliva',lightgreen:'Verde claro'},
        famDesc:{AIXR:'abanico con inducción de aire, rango extendido', AI:'abanico con inducción de aire', XR:'abanico de rango extendido, gota fina', AITTJ60:'doble abanico 60° con inducción de aire',
                 AI3070:'doble abanico asimétrico 30°/70° con inducción de aire', TJ60:'doble abanico 60°, gota fina', TXB:'cono hueco, gota muy fina', SJ7:'7 chorros líquidos para abonos'},
-       famUse:{ diserbo:{AIXR:'Sistémicos · antideriva · uso general', AI:'Sistémicos · máxima reducción de deriva', XR:'De contacto · máxima cobertura', AITTJ60:'Post-emergencia de contacto (sugerido)'},
-                fungins:{AITTJ60:'Cobertura y penetración, antideriva', AI3070:'Trigo y cebada · cobertura de la espiga', TXB:'Vegetación densa · gota fina', TJ60:'De contacto · máxima cobertura'},
+       famUse:{ diserbo:{AIXR:'Sistémicos · antideriva · uso general', AI:'Sistémicos · máxima reducción de deriva', XR:'De contacto · máxima cobertura', AITTJ60:'**Antideriva** · post-emergencia de contacto (sugerido)'},
+                fungins:{AITTJ60:'**Antideriva** · cobertura y penetración', AI3070:'Trigo y cebada · cobertura de la espiga', TXB:'Vegetación densa · gota fina', TJ60:'De contacto · máxima cobertura'},
                 concime:{SJ7:'Abonos líquidos (p. ej. UAN) · sin quemaduras foliares'} },
        info:'Ficha de la boquilla', rTitle:'Valoración TeeJet', gHerb:'Herbicidas', gFung:'Fungicidas', gIns:'Insecticidas', gOther:'Otros',
        cSoil:'Incorporados al suelo', cCont:'De contacto', cSys:'Sistémicos', cDrift:'Control de deriva', cPwm:'Control de boquillas PWM',
@@ -1027,8 +1028,8 @@ const FAM_I18N = {
        colors:{green:'Grün',yellow:'Gelb',lilac:'Lila',blue:'Blau',red:'Rot',brown:'Braun',grey:'Grau',white:'Weiß',lightblue:'Hellblau',orange:'Orange',olive:'Oliv',lightgreen:'Hellgrün'},
        famDesc:{AIXR:'Injektor-Flachstrahl, erweiterter Druckbereich', AI:'Injektor-Flachstrahl', XR:'Flachstrahl mit erweitertem Druckbereich, feine Tropfen', AITTJ60:'Injektor-Doppelflachstrahl 60°',
                 AI3070:'asymmetrischer Injektor-Doppelflachstrahl 30°/70°', TJ60:'Doppelflachstrahl 60°, feine Tropfen', TXB:'Hohlkegel, sehr feine Tropfen', SJ7:'7 Flüssigkeitsstrahlen für Dünger'},
-       famUse:{ diserbo:{AIXR:'Systemisch · abdriftmindernd · universell', AI:'Systemisch · maximale Abdriftminderung', XR:'Kontaktmittel · maximale Benetzung', AITTJ60:'Nachauflauf Kontaktmittel (Vorschlag)'},
-                fungins:{AITTJ60:'Benetzung und Durchdringung, abdriftmindernd', AI3070:'Weizen und Gerste · Ährenbenetzung', TXB:'Dichter Bestand · feine Tropfen', TJ60:'Kontaktmittel · maximale Benetzung'},
+       famUse:{ diserbo:{AIXR:'Systemisch · abdriftmindernd · universell', AI:'Systemisch · maximale Abdriftminderung', XR:'Kontaktmittel · maximale Benetzung', AITTJ60:'**Abdriftmindernd** · Nachauflauf Kontaktmittel (Vorschlag)'},
+                fungins:{AITTJ60:'**Abdriftmindernd** · Benetzung und Durchdringung', AI3070:'Weizen und Gerste · Ährenbenetzung', TXB:'Dichter Bestand · feine Tropfen', TJ60:'Kontaktmittel · maximale Benetzung'},
                 concime:{SJ7:'Flüssigdünger (z. B. AHL) · keine Blattverätzung'} },
        info:'Düsenblatt', rTitle:'TeeJet-Bewertung', gHerb:'Herbizide', gFung:'Fungizide', gIns:'Insektizide', gOther:'Sonstiges',
        cSoil:'Bodeneingearbeitet', cCont:'Kontakt', cSys:'Systemisch', cDrift:'Abdriftkontrolle', cPwm:'PWM-Düsensteuerung',
@@ -1049,8 +1050,8 @@ const FAM_I18N = {
        colors:{green:'Vert',yellow:'Jaune',lilac:'Lilas',blue:'Bleu',red:'Rouge',brown:'Marron',grey:'Gris',white:'Blanc',lightblue:'Bleu clair',orange:'Orange',olive:'Olive',lightgreen:'Vert clair'},
        famDesc:{AIXR:"fente à injection d'air, plage étendue", AI:"fente à injection d'air", XR:'fente à plage étendue, goutte fine', AITTJ60:"double fente 60° à injection d'air",
                 AI3070:"double fente asymétrique 30°/70° à injection d'air", TJ60:'double fente 60°, goutte fine', TXB:'cône creux, goutte très fine', SJ7:'7 filets liquides pour engrais'},
-       famUse:{ diserbo:{AIXR:'Systémiques · antidérive · usage général', AI:'Systémiques · réduction maximale de la dérive', XR:'De contact · couverture maximale', AITTJ60:'Post-levée de contact (suggéré)'},
-                fungins:{AITTJ60:'Couverture et pénétration, antidérive', AI3070:'Blé et orge · couverture de l’épi', TXB:'Végétation dense · goutte fine', TJ60:'De contact · couverture maximale'},
+       famUse:{ diserbo:{AIXR:'Systémiques · antidérive · usage général', AI:'Systémiques · réduction maximale de la dérive', XR:'De contact · couverture maximale', AITTJ60:'**Antidérive** · post-levée de contact (suggéré)'},
+                fungins:{AITTJ60:'**Antidérive** · couverture et pénétration', AI3070:'Blé et orge · couverture de l’épi', TXB:'Végétation dense · goutte fine', TJ60:'De contact · couverture maximale'},
                 concime:{SJ7:'Engrais liquides (ex. solution azotée) · pas de brûlures'} },
        info:'Fiche de la buse', rTitle:'Évaluation TeeJet', gHerb:'Herbicides', gFung:'Fongicides', gIns:'Insecticides', gOther:'Autres',
        cSoil:'Incorporés au sol', cCont:'De contact', cSys:'Systémiques', cDrift:'Contrôle de la dérive', cPwm:'Commande de buses PWM',
@@ -1284,10 +1285,12 @@ document.addEventListener('keydown', e => {
   if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ibtn')) { e.preventDefault(); e.target.click(); }
 });
 
+// testo della tipologia: le parti tra ** ** vanno in grassetto
+function famUseHtml(tr, fid){ return esc(T('famUse')[tr][fid] || '').replace(/[*][*](.+?)[*][*]/g, '<strong>$1</strong>'); }
 function famChips(i, set, fam){
   const tr = treatOf(set);
   return `<div class="alts-title">${esc(T('famTitle'))}</div><div class="fams" id="fams${i}">` + TREATMENTS[tr].map((fid, k) =>
-    `<button type="button" class="fam${fid === fam.id ? ' sel' : ''}" data-set="${i}" data-fam="${fid}"><b>${esc(FAMILIES[fid].name)}${k === 0 ? ' <em class="star" style="font-style:normal">★</em>' : ''}</b><span>${esc(T('famUse')[tr][fid])}</span>${ibtn(fid)}</button>`).join('') + '</div>' +
+    `<button type="button" class="fam${fid === fam.id ? ' sel' : ''}" data-set="${i}" data-fam="${fid}"><b>${esc(FAMILIES[fid].name)}${k === 0 ? ' <em class="star" style="font-style:normal">★</em>' : ''}</b><span>${famUseHtml(tr, fid)}</span>${ibtn(fid)}</button>`).join('') + '</div>' +
     (tr === 'concime' ? `<div class="fert">${esc(T('fertNote'))}</div>` : '');
 }
 function colorName(n){ return T('colors')[CAP_NAME[n.cap]] || ''; }
