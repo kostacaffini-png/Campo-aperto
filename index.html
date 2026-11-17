@@ -313,7 +313,7 @@
   .cfg-select option,.cfg-select optgroup{background:var(--panel);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;}
   .cfg-select optgroup{font-weight:700;font-style:normal;}
   @media (hover:hover){
-    .cfg-btn:hover,.seg-btn:hover,.alt:hover,.series-btn:hover,.lang-btn:hover,.theme-btn:hover,.cfg-select:hover{border-color:var(--accent);}
+    .cfg-btn:hover,.seg-btn:hover,.alt:hover,.fam:hover,.series-btn:hover,.lang-btn:hover,.theme-btn:hover,.cfg-select:hover{border-color:var(--accent);}
     .cfg-btn.primary:hover,.seg-btn.active:hover{filter:brightness(1.1);}
   }
   button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
@@ -372,6 +372,48 @@
   .xrow .input-row{display:flex;align-items:center;gap:8px;}
   .xrow .u{font-size:12px;color:var(--text-dim);min-width:30px;}
   .alts .alt:last-child{margin-bottom:6px;}
+  /* tipo di trattamento e tipologia di ugello */
+  .tr-field{margin-bottom:12px;}
+  .tr-seg{gap:6px;}
+  .tr-seg .seg-btn{font-size:12px;font-weight:600;padding:9px 4px;line-height:1.2;}
+  .fams{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px;}
+  .fam{display:flex;flex-direction:column;gap:2px;text-align:left;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-family:'Inter',sans-serif;cursor:pointer;min-width:0;}
+  .fam b{font-family:'Roboto Mono',monospace;font-size:13px;font-weight:500;}
+  .fam > span{font-size:10.5px;color:var(--text-dim);line-height:1.3;}
+  .fam.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset;}
+  .rec-fam{font-size:11.5px;margin-top:2px;line-height:1.35;}
+  .badge .sw{width:10px;height:10px;vertical-align:-1px;margin-right:4px;}
+  .fert{font-size:11.5px;line-height:1.5;color:var(--text-dim);margin-top:8px;}
+  /* pulsante "i" e scheda ugello */
+  .fam{position:relative;padding-right:30px;}
+  .ibtn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;flex-shrink:0;
+    border:1.5px solid var(--accent);color:var(--accent);background:var(--panel);font:italic 700 12.5px Georgia,serif;cursor:pointer;vertical-align:middle;}
+  .fam .ibtn{position:absolute;top:6px;right:6px;}
+  .alt .ibtn{margin-left:2px;}
+  .ibtn:active{opacity:.7;}
+  @media (min-width:1100px){
+    #setsHost .alts .alt{grid-template-columns:auto 1fr auto auto;grid-template-areas:"sw code code i" "sw p d i";}
+    #setsHost .alts .alt .ibtn{grid-area:i;}
+  }
+  .ni-ov{position:fixed;inset:0;z-index:2500;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:14px;}
+  .ni{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:16px;max-width:440px;width:100%;max-height:calc(100vh - 28px);overflow:auto;
+    box-shadow:0 14px 44px rgba(0,0,0,.5);padding:16px;}
+  .ni-head{display:flex;align-items:flex-start;gap:10px;}
+  .ni-head h3{margin:0;font-family:'Oswald',sans-serif;font-size:19px;font-weight:600;letter-spacing:.02em;}
+  .ni-head p{margin:2px 0 0;font-size:12.5px;color:var(--text-dim);line-height:1.4;}
+  .ni-x{margin-left:auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--panel-2);color:var(--text);font-size:18px;cursor:pointer;flex-shrink:0;}
+  .ni-icon{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;margin:12px 0 4px;padding:6px;}
+  .ni-icon svg{display:block;width:100%;height:auto;max-height:150px;}
+  .ni-cap{font-size:11px;color:var(--text-dim);text-align:center;margin-bottom:10px;}
+  .ni-sel{font-size:12.5px;background:var(--panel-2);border-radius:10px;padding:8px 10px;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .ni-grid{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:12.5px;align-items:center;}
+  .ni-grid .g{grid-column:1 / -1;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-dim);margin-top:6px;}
+  .rt{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;text-align:center;min-width:92px;letter-spacing:.02em;}
+  .rt.E{background:#0096d6;color:#fff;} .rt.MB{background:#7ac143;color:#10200a;} .rt.B{background:#ffd400;color:#2a2400;} .rt.N{background:var(--panel-2);color:var(--text-dim);}
+  .ni-facts{font-size:12px;line-height:1.55;margin-top:10px;color:var(--text-dim);}
+  .ni-facts b{color:var(--text);}
+  .ni-note{font-size:12.5px;line-height:1.5;margin-top:10px;padding:8px 10px;border-left:3px solid var(--accent);background:var(--panel-2);border-radius:6px;}
+  .ni-src{font-size:10.5px;color:var(--text-dim);margin-top:10px;}
 
   /* layout campo aperto: mobile = colonna; desktop = fascia dati macchina + preset a sinistra + set affiancati */
   .layout{display:block;}
@@ -520,7 +562,7 @@
 
 <script>
 // =====================================================================
-// SCELTA UGELLI - CAMPO APERTO (AIXR 110°)
+// SCELTA UGELLI - CAMPO APERTO (TeeJet: tipologia per trattamento + misura ISO)
 // Dati: scheda applicazione TeeJet AIXR (acqua a 21 °C, ISO 25358).
 // l/ha = l/min × 600 / (km/h × interasse[m])
 // =====================================================================
@@ -545,6 +587,76 @@ const NOZZLES = [
 NOZZLES.forEach(n => {
   n.k = n.q.reduce((a, v, i) => a + v * Math.sqrt(i + 1), 0) / n.q.reduce((a, _, i) => a + (i + 1), 0);
 });
+
+// ---------------------------------------------------------------------
+// TIPOLOGIE DI UGELLO TeeJet E TRATTAMENTI
+// La portata dipende solo dalla misura ISO (colore): la tabella NOZZLES qui sopra vale per tutte le tipologie.
+// Ogni tipologia ha le sue misure disponibili e il suo campo di pressione (da catalogo TeeJet).
+// optLo/optHi/accLo/accHi/pTarget: zona ideale/accettabile, se diversa da quella generale (3–4 / 2–5 bar).
+// VALORI DA VALIDARE a cura del reparto tecnico: per modificarli basta cambiare questa tabella.
+// ---------------------------------------------------------------------
+const CAP_COLOR = {'0050':'#c4b5fd','0067':'#7a7a32','01':'#f4820f','015':'#2e9f4f','02':'#f2c94c','025':'#a78bda','03':'#2f80ed','04':'#eb5757','05':'#8b5a2b','06':'#8e9399','08':'#ffffff','10':'#29a3e0','15':'#7ed37a'};
+const CAP_NAME  = {'0050':'lilac','0067':'olive','01':'orange','015':'green','02':'yellow','025':'lilac','03':'blue','04':'red','05':'brown','06':'grey','08':'white','10':'lightblue','15':'lightgreen'};
+const capOf = id => id.replace(/^110/, '');
+// Dati dal catalogo TeeJet 51A-IT (ugelli per irrorazione a pieno campo): pressioni (bar), portata per ugello (l/min, acqua) e classe di goccia.
+// AIXR usa la tabella NOZZLES qui sopra (invariata). Per TwinJet e XR la goccia è quella della versione 110°.
+const P6 = [1,2,3,4,5,6], P15 = [1.5,2,3,4,5,6], P26 = [2,3,4,5,6], PXR = [1,1.5,2,2.5,3,4], PTJ = [2,2.5,3,3.5,4], PSJ = [1.5,2,2.5,3,4];
+const ISOQ = { '01':[0.23,0.32,0.39,0.45,0.51,0.56], '015':[0.34,0.48,0.59,0.68,0.76,0.83], '02':[0.46,0.65,0.79,0.91,1.02,1.12], '025':[0.57,0.81,0.99,1.14,1.28,1.40],
+  '03':[0.68,0.96,1.18,1.36,1.52,1.67], '04':[0.91,1.29,1.58,1.82,2.04,2.23], '05':[1.14,1.61,1.97,2.27,2.54,2.79], '06':[1.37,1.94,2.37,2.74,3.06,3.35],
+  '08':[1.82,2.58,3.16,3.65,4.08,4.47], '10':[2.28,3.23,3.95,4.56,5.10,5.59] };   // portata ISO a 1–6 bar
+const isoAt = (cap, ps) => ps.map(p => +(ISOQ[cap][0] * Math.sqrt(p)).toFixed(3));
+const FAMDATA = {
+  AI:      { p:P26, d:{ '015':'UC XC XC VC VC', '02':'UC XC XC VC VC', '025':'UC XC XC VC VC', '03':'UC XC XC VC VC', '04':'UC XC XC VC VC', '05':'UC XC XC VC VC', '06':'UC XC XC XC VC', '08':'UC UC XC XC VC', '10':'UC UC XC XC VC' } },
+  XR:      { p:PXR, d:{ '01':'F F F F F VF', '015':'F F F F F F', '02':'M F F F F F', '025':'M F F F F F', '03':'M M F F F F', '04':'M M M M F F', '05':'M M M M M F', '06':'C M M M M F', '08':'C C C M M M', '10':'VC C C C M M' } },
+  AITTJ60: { p:P15, d:{ '02':'XC VC VC C C C', '025':'XC VC VC C C C', '03':'UC XC VC VC C C', '04':'UC XC VC VC C C', '05':'UC XC XC VC C C', '06':'UC XC XC VC C C', '08':'UC UC XC XC VC VC', '10':'UC UC UC XC XC VC' } },
+  AI3070:  { p:P15, d:{ '015':'VC C C M M M', '02':'XC VC C C M M', '025':'XC VC C C C M', '03':'XC XC C C C C', '04':'UC XC VC VC C C', '05':'UC XC VC VC C C' } },
+  TJ60:    { p:PTJ, d:{ '02':'F VF VF VF VF', '03':'F F F F F', '04':'F F F F F', '05':'M M F F F', '06':'M M M F F', '08':'M M M M M', '10':'M M M M M' } },
+  TXB:     { p:P26, d:{ '0050':'F VF VF VF VF', '0067':'F VF VF VF VF', '01':'F F VF VF VF', '015':'F F F VF VF', '02':'F F F VF VF', '03':'F F F F F', '04':'F F F F F' },
+             q:{ '0050':[0.164,0.196,0.223,0.245,0.266], '0067':[0.218,0.262,0.299,0.331,0.360], '01':[0.327,0.393,0.448,0.496,0.539], '015':[0.487,0.591,0.678,0.754,0.823],
+                 '02':[0.649,0.788,0.904,1.01,1.10], '03':[0.968,1.18,1.37,1.53,1.67], '04':[1.29,1.58,1.82,2.03,2.23] } },
+  SJ7:     { p:PSJ, q:{ '015':[0.39,0.46,0.52,0.57,0.67], '02':[0.55,0.64,0.72,0.80,0.93], '03':[0.87,1.00,1.10,1.18,1.31], '04':[1.17,1.33,1.45,1.55,1.72], '05':[1.49,1.68,1.83,1.95,2.16],
+                 '06':[1.77,2.01,2.19,2.35,2.61], '08':[2.28,2.66,2.94,3.15,3.46], '10':[2.84,3.32,3.67,3.94,4.33], '15':[4.09,4.82,5.40,5.87,6.58] } }
+};
+// Tipologie: campo di pressione dal catalogo (limitato a quello della pompa, 1–6 bar) e zona ideale.
+const FAMILIES = {
+  AIXR:    { id:'AIXR',    name:'AIXR',          pMin:1,   pMax:6, code:c => 'AIXR110' + c, variants:'VP/VK', spray:'fan',  rate:'MB B E B E B E E –' },
+  AI:      { id:'AI',      name:'AI',            pMin:2,   pMax:6, code:c => 'AI110' + c,   variants:'VS/VP', spray:'fanAI', rate:'MB B E B E B E E –', pTarget:4, optLo:3, optHi:5, accLo:2, accHi:6 },
+  XR:      { id:'XR',      name:'XR',            pMin:1,   pMax:4, code:c => 'XR110' + c,   variants:'VP/VK/VS', spray:'fanFine', rate:'– E B E B E B B E', pTarget:2.5, optLo:2, optHi:3, accLo:1.5, accHi:4 },
+  AITTJ60: { id:'AITTJ60', name:'AITTJ60',       pMin:1.5, pMax:6, code:c => 'AITTJ60-110' + c, variants:'VP', spray:'twinAI', rate:'MB B E B E B E E –' },
+  AI3070:  { id:'AI3070',  name:'AI3070',        pMin:1.5, pMax:6, code:c => 'AI3070-' + c, variants:'VP', spray:'a3070', rate:'– MB MB E MB E MB E –' },
+  TJ60:    { id:'TJ60',    name:'TwinJet TJ60',  pMin:2,   pMax:4, code:c => 'TJ60-110' + c, variants:'VS/VP/VK', spray:'twin', rate:'– E – E – E – – B', pTarget:3, optLo:2.5, optHi:3.5, accLo:2, accHi:4 },
+  TXB:     { id:'TXB',     name:'TXB ConeJet',   pMin:2,   pMax:6, code:c => 'TXB80' + c + 'VK', variants:'VK', spray:'cone', rate:'– E B E B E B – –', pTarget:4.5, optLo:3, optHi:6, accLo:2, accHi:6 },
+  SJ7:     { id:'SJ7',     name:'StreamJet SJ7', pMin:1.5, pMax:4, code:c => 'SJ7-' + c, variants:'VP', streams:true, spray:'streams', rate:'', pTarget:2.5, optLo:2, optHi:3, accLo:1.5, accHi:4 }
+};
+// Per ogni trattamento: tipologie adatte, la prima è quella consigliata (★)
+const TREATMENTS = { diserbo:['AIXR','AI','XR','AITTJ60'], fungins:['AITTJ60','AI3070','TXB','TJ60'], concime:['SJ7'] };
+const TREAT_IDS = ['diserbo','fungins','concime'], TREAT_DEF = 'diserbo';
+const FAM_NOZZLES = {};
+Object.keys(FAMILIES).forEach(fid => {
+  const f = FAMILIES[fid];
+  if (fid === 'AIXR') {   // tabella originale, invariata
+    FAM_NOZZLES[fid] = NOZZLES.map(n => Object.assign({}, n, { fam:fid, cap:capOf(n.id), dp:P6, dd:n.drop, qp:n.q }));
+    return;
+  }
+  const D = FAMDATA[fid], caps = Object.keys(D.q || D.d);
+  FAM_NOZZLES[fid] = caps.map(cap => {
+    const qp = D.q ? D.q[cap] : isoAt(cap, D.p);
+    const k = qp.reduce((a, q, i) => a + q * Math.sqrt(D.p[i]), 0) / D.p.reduce((a, p) => a + p, 0);
+    return { id:'110' + cap, cap, fam:fid, code:f.code(cap), variants:f.variants, color:CAP_COLOR[cap],
+             mesh:['0050','0067','01','015'].includes(cap) ? 100 : 50, k, dp:D.p, qp, dd:D.d ? D.d[cap].split(' ') : null, drop:true };
+  });
+});
+// ordina dalla portata più piccola alla più grande (serve per gli avvisi e per il piano dosaggi)
+Object.values(FAM_NOZZLES).forEach(l => l.sort((a, b) => a.k - b.k));
+function treatOf(set){ return TREATMENTS[set.treat] ? set.treat : TREAT_DEF; }
+function famOf(set){ const list = TREATMENTS[treatOf(set)]; return FAMILIES[list.includes(set.fam) ? set.fam : list[0]]; }
+function zonesOf(f){
+  return { lo:Math.max(P_MIN, f.pMin), hi:Math.min(P_MAX, f.pMax), optLo:f.optLo || P_OPT_LO, optHi:f.optHi || P_OPT_HI,
+           accLo:f.accLo || P_ACC_LO, accHi:f.accHi || P_ACC_HI, target:f.pTarget || P_TARGET };
+}
+function zonesN(n){ return zonesOf(FAMILIES[n.fam] || FAMILIES.AIXR); }
+function blankSet(){ return { lha:0, vel:0, nozzle:null, treat:TREAT_DEF, fam:null }; }
+
 const V_MIN_DEF = 5, V_MAX_DEF = 12, MAX_EXTRA = 5;   // limiti di velocità operativa (km/h) e n° massimo di dosaggi aggiuntivi
 const ZONE_COLOR = { opt:'#2e9f4f', ok:'#e0b020', edge:'#e07a2f', out:'#d94b4b' };
 
@@ -789,6 +901,176 @@ const UI_I18N = {
 };
 Object.keys(UI_I18N).forEach(l => Object.assign(I18N[l], UI_I18N[l]));
 
+// ---- Tipo di trattamento e tipologia di ugello ----
+const TREAT_I18N = {
+  it:{ treat:'Tipo di trattamento', tNames:{diserbo:'Diserbo', fungins:'Fungicidi / insetticidi', concime:'Concimazione liquida'},
+       famTitle:'Tipologia di ugello — ★ consigliata per questo trattamento', colorLbl:'Colore ISO', dropTyp:'Goccia tipica', streams:'Fili liquidi: nessuna deriva',
+       colors:{green:'Verde',yellow:'Giallo',lilac:'Lilla',blue:'Blu',red:'Rosso',brown:'Marrone',grey:'Grigio',white:'Bianco',lightblue:'Azzurro'},
+       famDesc:{AIXR:"ventaglio a induzione d'aria, antideriva", TTI:"induzione d'aria, goccia ultra grossolana", TT:'ventaglio grandangolare', TTJ60:'doppio ventaglio 60°', AITTJ60:"doppio ventaglio a induzione d'aria", SJ7:'7 fili liquidi per concimi'},
+       famUse:{ diserbo:{AIXR:'Sistemici e residuali · uso generale', TTI:'Pre-emergenza e sistemici · massima antideriva', TT:'Di contatto · più copertura'},
+                fungins:{AITTJ60:'Copertura e penetrazione, con antideriva', TTJ60:'Di contatto · massima copertura', AIXR:'Sistemici · antideriva', TT:'Uso generale'},
+                concime:{SJ7:'Concimi liquidi (es. UAN) · niente ustioni fogliari', AIXR:'Concimi fogliari · serve copertura'} },
+       fertNote:"Le portate sono riferite all'acqua. Con concimi liquidi densi (es. UAN, circa 1,28 kg/l) esce circa il 12 % in meno: per compensare imposta una dose moltiplicata per 1,13.",
+       rTreat:'Trattamento', rType:'Tipologia',
+       dataNote:"Portate: valori nominali ISO dalla scheda TeeJet AIXR 110° (acqua a 21 °C), comuni a tutte le tipologie con lo stesso colore (per SJ7 sono possibili scostamenti di qualche %). La classe di goccia per pressione è riportata solo per AIXR. Abbinamento trattamento/ugello secondo la guida alla selezione TeeJet. Valori indicativi: verificare sempre sulla scheda dell'ugello e sull'etichetta del prodotto." },
+  en:{ treat:'Treatment type', tNames:{diserbo:'Herbicide', fungins:'Fungicides / insecticides', concime:'Liquid fertiliser'},
+       famTitle:'Nozzle type — ★ recommended for this treatment', colorLbl:'ISO colour', dropTyp:'Typical droplet', streams:'Liquid streams: no drift',
+       colors:{green:'Green',yellow:'Yellow',lilac:'Lilac',blue:'Blue',red:'Red',brown:'Brown',grey:'Grey',white:'White',lightblue:'Light blue'},
+       famDesc:{AIXR:'air induction flat fan, low drift', TTI:'air induction, ultra coarse droplets', TT:'wide angle flat fan', TTJ60:'twin flat fan 60°', AITTJ60:'air induction twin flat fan', SJ7:'7 liquid streams for fertiliser'},
+       famUse:{ diserbo:{AIXR:'Systemic and residual · general use', TTI:'Pre-emergence and systemic · maximum drift control', TT:'Contact · more coverage'},
+                fungins:{AITTJ60:'Coverage and penetration, with drift control', TTJ60:'Contact · maximum coverage', AIXR:'Systemic · low drift', TT:'General use'},
+                concime:{SJ7:'Liquid fertiliser (e.g. UAN) · no leaf burn', AIXR:'Foliar fertiliser · coverage needed'} },
+       fertNote:'Flow rates refer to water. With dense liquid fertilisers (e.g. UAN, about 1.28 kg/l) output is about 12 % lower: to compensate, enter a rate multiplied by 1.13.',
+       rTreat:'Treatment', rType:'Type',
+       dataNote:'Flow rates: ISO nominal values from the TeeJet AIXR 110° chart (water at 21 °C), shared by all nozzle types with the same colour (SJ7 may deviate by a few %). Droplet class by pressure is given for AIXR only. Treatment/nozzle matching follows the TeeJet selection guide. Indicative values: always check the nozzle chart and the product label.' },
+  es:{ treat:'Tipo de tratamiento', tNames:{diserbo:'Herbicida', fungins:'Fungicidas / insecticidas', concime:'Abonado líquido'},
+       famTitle:'Tipo de boquilla — ★ recomendada para este tratamiento', colorLbl:'Color ISO', dropTyp:'Gota típica', streams:'Chorros líquidos: sin deriva',
+       colors:{green:'Verde',yellow:'Amarillo',lilac:'Lila',blue:'Azul',red:'Rojo',brown:'Marrón',grey:'Gris',white:'Blanco',lightblue:'Azul claro'},
+       famDesc:{AIXR:'abanico con inducción de aire, antideriva', TTI:'inducción de aire, gota ultra gruesa', TT:'abanico gran angular', TTJ60:'doble abanico 60°', AITTJ60:'doble abanico con inducción de aire', SJ7:'7 chorros líquidos para abonos'},
+       famUse:{ diserbo:{AIXR:'Sistémicos y residuales · uso general', TTI:'Preemergencia y sistémicos · máxima antideriva', TT:'De contacto · más cobertura'},
+                fungins:{AITTJ60:'Cobertura y penetración, con antideriva', TTJ60:'De contacto · máxima cobertura', AIXR:'Sistémicos · antideriva', TT:'Uso general'},
+                concime:{SJ7:'Abonos líquidos (p. ej. UAN) · sin quemaduras foliares', AIXR:'Abonos foliares · requiere cobertura'} },
+       fertNote:'Los caudales se refieren al agua. Con abonos líquidos densos (p. ej. UAN, aprox. 1,28 kg/l) sale alrededor de un 12 % menos: para compensar, introduce una dosis multiplicada por 1,13.',
+       rTreat:'Tratamiento', rType:'Tipo',
+       dataNote:'Caudales: valores nominales ISO de la tabla TeeJet AIXR 110° (agua a 21 °C), comunes a todos los tipos con el mismo color (en SJ7 puede haber desviaciones de algún %). La clase de gota por presión se indica solo para AIXR. Combinación tratamiento/boquilla según la guía de selección TeeJet. Valores orientativos: comprobar siempre la tabla de la boquilla y la etiqueta del producto.' },
+  de:{ treat:'Behandlungsart', tNames:{diserbo:'Herbizid', fungins:'Fungizide / Insektizide', concime:'Flüssigdüngung'},
+       famTitle:'Düsentyp — ★ für diese Behandlung empfohlen', colorLbl:'ISO-Farbe', dropTyp:'Typische Tropfen', streams:'Flüssigkeitsstrahlen: keine Abdrift',
+       colors:{green:'Grün',yellow:'Gelb',lilac:'Lila',blue:'Blau',red:'Rot',brown:'Braun',grey:'Grau',white:'Weiß',lightblue:'Hellblau'},
+       famDesc:{AIXR:'Injektor-Flachstrahl, abdriftmindernd', TTI:'Injektordüse, ultragrobe Tropfen', TT:'Weitwinkel-Flachstrahl', TTJ60:'Doppelflachstrahl 60°', AITTJ60:'Injektor-Doppelflachstrahl', SJ7:'7 Flüssigkeitsstrahlen für Dünger'},
+       famUse:{ diserbo:{AIXR:'Systemisch und Bodenwirkung · universell', TTI:'Vorauflauf und systemisch · maximale Abdriftminderung', TT:'Kontaktmittel · mehr Benetzung'},
+                fungins:{AITTJ60:'Benetzung und Durchdringung, abdriftmindernd', TTJ60:'Kontaktmittel · maximale Benetzung', AIXR:'Systemisch · abdriftmindernd', TT:'Universell'},
+                concime:{SJ7:'Flüssigdünger (z. B. AHL) · keine Blattverätzung', AIXR:'Blattdünger · Benetzung nötig'} },
+       fertNote:'Die Durchflüsse gelten für Wasser. Bei dichten Flüssigdüngern (z. B. AHL, ca. 1,28 kg/l) fließt etwa 12 % weniger: zum Ausgleich die Aufwandmenge mit 1,13 multipliziert eingeben.',
+       rTreat:'Behandlung', rType:'Typ',
+       dataNote:'Durchflüsse: ISO-Nennwerte aus der TeeJet-AIXR-110°-Tabelle (Wasser bei 21 °C), gültig für alle Düsentypen gleicher Farbe (bei SJ7 sind Abweichungen von einigen % möglich). Die Tropfenklasse je Druck ist nur für AIXR angegeben. Zuordnung Behandlung/Düse gemäß TeeJet-Auswahlhilfe. Richtwerte: stets Düsentabelle und Produktetikett prüfen.' },
+  fr:{ treat:'Type de traitement', tNames:{diserbo:'Désherbage', fungins:'Fongicides / insecticides', concime:'Engrais liquide'},
+       famTitle:'Type de buse — ★ conseillé pour ce traitement', colorLbl:'Couleur ISO', dropTyp:'Goutte typique', streams:'Filets liquides : aucune dérive',
+       colors:{green:'Vert',yellow:'Jaune',lilac:'Lilas',blue:'Bleu',red:'Rouge',brown:'Marron',grey:'Gris',white:'Blanc',lightblue:'Bleu clair'},
+       famDesc:{AIXR:"fente à injection d'air, antidérive", TTI:"injection d'air, goutte ultra grossière", TT:'fente grand angle', TTJ60:'double fente 60°', AITTJ60:"double fente à injection d'air", SJ7:'7 filets liquides pour engrais'},
+       famUse:{ diserbo:{AIXR:'Systémiques et racinaires · usage général', TTI:'Prélevée et systémiques · antidérive maximale', TT:'De contact · plus de couverture'},
+                fungins:{AITTJ60:'Couverture et pénétration, avec antidérive', TTJ60:'De contact · couverture maximale', AIXR:'Systémiques · antidérive', TT:'Usage général'},
+                concime:{SJ7:'Engrais liquides (ex. solution azotée) · pas de brûlures', AIXR:'Engrais foliaires · couverture nécessaire'} },
+       fertNote:"Les débits se rapportent à l'eau. Avec des engrais liquides denses (ex. solution azotée, env. 1,28 kg/l), le débit est inférieur d'environ 12 % : pour compenser, saisissez une dose multipliée par 1,13.",
+       rTreat:'Traitement', rType:'Type',
+       dataNote:"Débits : valeurs nominales ISO du tableau TeeJet AIXR 110° (eau à 21 °C), communes à tous les types de même couleur (écarts de quelques % possibles pour SJ7). La classe de goutte par pression n'est indiquée que pour AIXR. Association traitement/buse selon le guide de sélection TeeJet. Valeurs indicatives : toujours vérifier le tableau de la buse et l'étiquette du produit." }
+};
+Object.keys(TREAT_I18N).forEach(l => Object.assign(I18N[l], TREAT_I18N[l]));
+// ---- Tipologie dal catalogo TeeJet 51A-IT e scheda "i" ----
+const FAM_I18N = {
+  it:{ dropNames:{UC:'Ultra grossolana',XC:'Extra grossolana',VC:'Molto grossolana',C:'Grossolana',M:'Media',F:'Fine',VF:'Molto fine'},
+       colors:{green:'Verde',yellow:'Giallo',lilac:'Lilla',blue:'Blu',red:'Rosso',brown:'Marrone',grey:'Grigio',white:'Bianco',lightblue:'Azzurro',orange:'Arancio',olive:'Oliva',lightgreen:'Verde chiaro'},
+       famDesc:{AIXR:"ventaglio a induzione d'aria, range esteso", AI:"ventaglio a induzione d'aria", XR:'ventaglio a range esteso, goccia fine', AITTJ60:"doppio ventaglio 60° a induzione d'aria",
+                AI3070:"doppio ventaglio asimmetrico 30°/70° a induzione d'aria", TJ60:'doppio ventaglio 60°, goccia fine', TXB:'cono vuoto, goccia molto fine', SJ7:'7 fili liquidi per concimi'},
+       famUse:{ diserbo:{AIXR:'Sistemici · antideriva · uso generale', AI:'Sistemici · massima riduzione deriva', XR:'Di contatto · massima copertura', AITTJ60:'Post-emergenza di contatto (suggerito)'},
+                fungins:{AITTJ60:'Copertura e penetrazione, antideriva', AI3070:'Grano e orzo · copertura della spiga', TXB:'Vegetazione fitta · goccia fine', TJ60:'Di contatto · massima copertura'},
+                concime:{SJ7:'Concimi liquidi (es. UAN) · niente ustioni fogliari'} },
+       info:'Scheda ugello', rTitle:'Valutazione TeeJet', gHerb:'Erbicidi', gFung:'Fungicidi', gIns:'Insetticidi', gOther:'Altro',
+       cSoil:'Incorporati nel suolo', cCont:'Per contatto', cSys:'Sistemici', cDrift:'Controllo deriva', cPwm:'Controllo ugelli PWM',
+       rE:'ECCELLENTE', rMB:'MOLTO BUONO', rB:'BUONO', rN:'—', range:'Pressione di lavoro', sizes:'Misure', drops:'Goccia', travel:'avanzamento', sel:'Selezionato',
+       src:'Fonte: catalogo TeeJet 51A-IT, guida alla scelta dell’ugello. Verificare sempre l’etichetta del prodotto.',
+       srcTXB:'Fonte: catalogo TeeJet 51A-IT, guida applicazioni mirate (atomizzatore) e pag. 41.',
+       srcSJ7:'Fonte: catalogo TeeJet 51A-IT, guida ugelli per fertilizzanti liquidi: pieno campo ECCELLENTE, localizzata MOLTO BUONO.',
+       notes:{ AIXR:'Gocce grandi con bolle d’aria e range di pressione esteso (1–6 bar): il compromesso più versatile tra copertura e deriva.',
+               AI:'Induzione d’aria classica: gocce ultra/extra grossolane, ottimo controllo deriva. Lavora da 2 bar in su.',
+               XR:'Goccia fine: massima copertura per prodotti di contatto, ma attenzione alla deriva (meglio sotto 2–3 bar).',
+               AITTJ60:'Due ventagli inclinati avanti e indietro: bagna entrambi i lati della pianta. Nel diserbo è un suggerimento per i prodotti di contatto in post-emergenza.',
+               AI3070:'Getto inclinato di 30° in avanti per penetrare nelle colture fitte e di 70° all’indietro per raggiungere la spiga: ideale per i trattamenti su grano e orzo.',
+               TJ60:'Doppio ventaglio a goccia fine: ottima penetrazione nella vegetazione fitta e nei residui colturali. Pressione 2–4 bar.',
+               TXB:'Cono vuoto in ceramica: goccia molto fine e copertura uniforme. Nato per atomizzatori, utile per insetticidi e fungicidi di contatto; lavora meglio da 3 bar in su.',
+               SJ7:'Sette fili liquidi compatti: il concime arriva al terreno senza bagnare le foglie, deriva praticamente nulla. Pressione 1,5–4 bar.' },
+       dataNote:"Dati: catalogo TeeJet 51A-IT (acqua a 21 °C, ISO 25358); valutazioni dalla guida alla scelta dell'ugello. Pressione limitata a quella della pompa (1–6 bar). Valori indicativi: verificare sempre la scheda dell'ugello e l'etichetta del prodotto." },
+  en:{ dropNames:{UC:'Ultra coarse',XC:'Extremely coarse',VC:'Very coarse',C:'Coarse',M:'Medium',F:'Fine',VF:'Very fine'},
+       colors:{green:'Green',yellow:'Yellow',lilac:'Lilac',blue:'Blue',red:'Red',brown:'Brown',grey:'Grey',white:'White',lightblue:'Light blue',orange:'Orange',olive:'Olive',lightgreen:'Light green'},
+       famDesc:{AIXR:'air induction extended range flat fan', AI:'air induction flat fan', XR:'extended range flat fan, fine droplets', AITTJ60:'air induction twin flat fan 60°',
+                AI3070:'air induction asymmetric twin fan 30°/70°', TJ60:'twin flat fan 60°, fine droplets', TXB:'hollow cone, very fine droplets', SJ7:'7 liquid streams for fertiliser'},
+       famUse:{ diserbo:{AIXR:'Systemic · low drift · general use', AI:'Systemic · maximum drift reduction', XR:'Contact · maximum coverage', AITTJ60:'Post-emergence contact (suggested)'},
+                fungins:{AITTJ60:'Coverage and penetration, low drift', AI3070:'Wheat and barley · head coverage', TXB:'Dense canopy · fine droplets', TJ60:'Contact · maximum coverage'},
+                concime:{SJ7:'Liquid fertiliser (e.g. UAN) · no leaf burn'} },
+       info:'Nozzle sheet', rTitle:'TeeJet rating', gHerb:'Herbicides', gFung:'Fungicides', gIns:'Insecticides', gOther:'Other',
+       cSoil:'Soil incorporated', cCont:'Contact', cSys:'Systemic', cDrift:'Drift control', cPwm:'PWM nozzle control',
+       rE:'EXCELLENT', rMB:'VERY GOOD', rB:'GOOD', rN:'—', range:'Working pressure', sizes:'Sizes', drops:'Droplet', travel:'travel', sel:'Selected',
+       src:'Source: TeeJet catalogue 51A, nozzle selection guide. Always check the product label.',
+       srcTXB:'Source: TeeJet catalogue 51A, directed application guide (airblast) and p. 41.',
+       srcSJ7:'Source: TeeJet catalogue 51A, liquid fertiliser guide: broadcast EXCELLENT, banded VERY GOOD.',
+       notes:{ AIXR:'Large air-filled droplets and extended pressure range (1–6 bar): the most versatile balance between coverage and drift.',
+               AI:'Classic air induction: ultra/extremely coarse droplets, excellent drift control. Works from 2 bar upwards.',
+               XR:'Fine droplets: maximum coverage for contact products, but watch drift (better below 2–3 bar).',
+               AITTJ60:'Two fans angled forward and backward: wets both sides of the plant. In weed control it is suggested for post-emergence contact products.',
+               AI3070:'30° forward spray to penetrate dense crops and 70° backward spray to reach the head: ideal for wheat and barley.',
+               TJ60:'Fine-droplet twin fan: excellent penetration into dense foliage and crop residue. Pressure 2–4 bar.',
+               TXB:'Ceramic hollow cone: very fine droplets and uniform coverage. Designed for airblast sprayers, useful for contact insecticides and fungicides; best from 3 bar.',
+               SJ7:'Seven compact liquid streams: fertiliser reaches the soil without wetting leaves, virtually no drift. Pressure 1.5–4 bar.' },
+       dataNote:'Data: TeeJet catalogue 51A (water at 21 °C, ISO 25358); ratings from the nozzle selection guide. Pressure limited to the pump range (1–6 bar). Indicative values: always check the nozzle chart and the product label.' },
+  es:{ dropNames:{UC:'Ultra gruesa',XC:'Extra gruesa',VC:'Muy gruesa',C:'Gruesa',M:'Media',F:'Fina',VF:'Muy fina'},
+       colors:{green:'Verde',yellow:'Amarillo',lilac:'Lila',blue:'Azul',red:'Rojo',brown:'Marrón',grey:'Gris',white:'Blanco',lightblue:'Azul claro',orange:'Naranja',olive:'Oliva',lightgreen:'Verde claro'},
+       famDesc:{AIXR:'abanico con inducción de aire, rango extendido', AI:'abanico con inducción de aire', XR:'abanico de rango extendido, gota fina', AITTJ60:'doble abanico 60° con inducción de aire',
+                AI3070:'doble abanico asimétrico 30°/70° con inducción de aire', TJ60:'doble abanico 60°, gota fina', TXB:'cono hueco, gota muy fina', SJ7:'7 chorros líquidos para abonos'},
+       famUse:{ diserbo:{AIXR:'Sistémicos · antideriva · uso general', AI:'Sistémicos · máxima reducción de deriva', XR:'De contacto · máxima cobertura', AITTJ60:'Post-emergencia de contacto (sugerido)'},
+                fungins:{AITTJ60:'Cobertura y penetración, antideriva', AI3070:'Trigo y cebada · cobertura de la espiga', TXB:'Vegetación densa · gota fina', TJ60:'De contacto · máxima cobertura'},
+                concime:{SJ7:'Abonos líquidos (p. ej. UAN) · sin quemaduras foliares'} },
+       info:'Ficha de la boquilla', rTitle:'Valoración TeeJet', gHerb:'Herbicidas', gFung:'Fungicidas', gIns:'Insecticidas', gOther:'Otros',
+       cSoil:'Incorporados al suelo', cCont:'De contacto', cSys:'Sistémicos', cDrift:'Control de deriva', cPwm:'Control de boquillas PWM',
+       rE:'EXCELENTE', rMB:'MUY BUENO', rB:'BUENO', rN:'—', range:'Presión de trabajo', sizes:'Tamaños', drops:'Gota', travel:'avance', sel:'Seleccionada',
+       src:'Fuente: catálogo TeeJet 51A, guía de selección de boquillas. Comprobar siempre la etiqueta del producto.',
+       srcTXB:'Fuente: catálogo TeeJet 51A, guía de aplicaciones dirigidas (atomizador) y pág. 41.',
+       srcSJ7:'Fuente: catálogo TeeJet 51A, guía para abonos líquidos: pleno campo EXCELENTE, localizada MUY BUENO.',
+       notes:{ AIXR:'Gotas grandes con burbujas de aire y rango de presión extendido (1–6 bar): el equilibrio más versátil entre cobertura y deriva.',
+               AI:'Inducción de aire clásica: gotas ultra/extra gruesas, excelente control de deriva. Trabaja a partir de 2 bar.',
+               XR:'Gota fina: máxima cobertura para productos de contacto, pero cuidado con la deriva (mejor por debajo de 2–3 bar).',
+               AITTJ60:'Dos abanicos inclinados hacia delante y hacia atrás: moja ambos lados de la planta. En herbicida se sugiere para productos de contacto en post-emergencia.',
+               AI3070:'Chorro inclinado 30° hacia delante para penetrar en cultivos densos y 70° hacia atrás para alcanzar la espiga: ideal para trigo y cebada.',
+               TJ60:'Doble abanico de gota fina: excelente penetración en vegetación densa y rastrojos. Presión 2–4 bar.',
+               TXB:'Cono hueco cerámico: gota muy fina y cobertura uniforme. Pensado para atomizadores, útil para insecticidas y fungicidas de contacto; mejor desde 3 bar.',
+               SJ7:'Siete chorros compactos: el abono llega al suelo sin mojar las hojas, deriva prácticamente nula. Presión 1,5–4 bar.' },
+       dataNote:'Datos: catálogo TeeJet 51A (agua a 21 °C, ISO 25358); valoraciones de la guía de selección de boquillas. Presión limitada a la de la bomba (1–6 bar). Valores orientativos: comprobar siempre la tabla de la boquilla y la etiqueta del producto.' },
+  de:{ dropNames:{UC:'Ultragrob',XC:'Extragrob',VC:'Sehr grob',C:'Grob',M:'Mittel',F:'Fein',VF:'Sehr fein'},
+       colors:{green:'Grün',yellow:'Gelb',lilac:'Lila',blue:'Blau',red:'Rot',brown:'Braun',grey:'Grau',white:'Weiß',lightblue:'Hellblau',orange:'Orange',olive:'Oliv',lightgreen:'Hellgrün'},
+       famDesc:{AIXR:'Injektor-Flachstrahl, erweiterter Druckbereich', AI:'Injektor-Flachstrahl', XR:'Flachstrahl mit erweitertem Druckbereich, feine Tropfen', AITTJ60:'Injektor-Doppelflachstrahl 60°',
+                AI3070:'asymmetrischer Injektor-Doppelflachstrahl 30°/70°', TJ60:'Doppelflachstrahl 60°, feine Tropfen', TXB:'Hohlkegel, sehr feine Tropfen', SJ7:'7 Flüssigkeitsstrahlen für Dünger'},
+       famUse:{ diserbo:{AIXR:'Systemisch · abdriftmindernd · universell', AI:'Systemisch · maximale Abdriftminderung', XR:'Kontaktmittel · maximale Benetzung', AITTJ60:'Nachauflauf Kontaktmittel (Vorschlag)'},
+                fungins:{AITTJ60:'Benetzung und Durchdringung, abdriftmindernd', AI3070:'Weizen und Gerste · Ährenbenetzung', TXB:'Dichter Bestand · feine Tropfen', TJ60:'Kontaktmittel · maximale Benetzung'},
+                concime:{SJ7:'Flüssigdünger (z. B. AHL) · keine Blattverätzung'} },
+       info:'Düsenblatt', rTitle:'TeeJet-Bewertung', gHerb:'Herbizide', gFung:'Fungizide', gIns:'Insektizide', gOther:'Sonstiges',
+       cSoil:'Bodeneingearbeitet', cCont:'Kontakt', cSys:'Systemisch', cDrift:'Abdriftkontrolle', cPwm:'PWM-Düsensteuerung',
+       rE:'AUSGEZEICHNET', rMB:'SEHR GUT', rB:'GUT', rN:'—', range:'Arbeitsdruck', sizes:'Größen', drops:'Tropfen', travel:'Fahrtrichtung', sel:'Ausgewählt',
+       src:'Quelle: TeeJet-Katalog 51A, Düsenauswahlhilfe. Stets das Produktetikett beachten.',
+       srcTXB:'Quelle: TeeJet-Katalog 51A, Auswahlhilfe gezielte Anwendungen (Sprühgerät) und S. 41.',
+       srcSJ7:'Quelle: TeeJet-Katalog 51A, Auswahlhilfe Flüssigdünger: flächig AUSGEZEICHNET, Bandapplikation SEHR GUT.',
+       notes:{ AIXR:'Große luftgefüllte Tropfen und erweiterter Druckbereich (1–6 bar): der vielseitigste Kompromiss zwischen Benetzung und Abdrift.',
+               AI:'Klassische Injektordüse: ultra-/extragrobe Tropfen, ausgezeichnete Abdriftkontrolle. Arbeitet ab 2 bar.',
+               XR:'Feine Tropfen: maximale Benetzung für Kontaktmittel, aber auf Abdrift achten (besser unter 2–3 bar).',
+               AITTJ60:'Zwei Fächer nach vorne und hinten geneigt: benetzt beide Seiten der Pflanze. Bei Herbiziden als Vorschlag für Kontaktmittel im Nachauflauf.',
+               AI3070:'Strahl 30° nach vorne zum Eindringen in dichte Bestände und 70° nach hinten zum Erreichen der Ähre: ideal für Weizen und Gerste.',
+               TJ60:'Doppelflachstrahl mit feinen Tropfen: sehr gute Durchdringung dichter Bestände und Erntereste. Druck 2–4 bar.',
+               TXB:'Keramik-Hohlkegel: sehr feine Tropfen, gleichmäßige Benetzung. Für Sprühgeräte entwickelt, nützlich für Kontakt-Insektizide und -Fungizide; am besten ab 3 bar.',
+               SJ7:'Sieben kompakte Strahlen: der Dünger erreicht den Boden ohne die Blätter zu benetzen, praktisch keine Abdrift. Druck 1,5–4 bar.' },
+       dataNote:'Daten: TeeJet-Katalog 51A (Wasser bei 21 °C, ISO 25358); Bewertungen aus der Düsenauswahlhilfe. Druck auf den Pumpenbereich begrenzt (1–6 bar). Richtwerte: stets Düsentabelle und Produktetikett prüfen.' },
+  fr:{ dropNames:{UC:'Ultra grossière',XC:'Extra grossière',VC:'Très grossière',C:'Grossière',M:'Moyenne',F:'Fine',VF:'Très fine'},
+       colors:{green:'Vert',yellow:'Jaune',lilac:'Lilas',blue:'Bleu',red:'Rouge',brown:'Marron',grey:'Gris',white:'Blanc',lightblue:'Bleu clair',orange:'Orange',olive:'Olive',lightgreen:'Vert clair'},
+       famDesc:{AIXR:"fente à injection d'air, plage étendue", AI:"fente à injection d'air", XR:'fente à plage étendue, goutte fine', AITTJ60:"double fente 60° à injection d'air",
+                AI3070:"double fente asymétrique 30°/70° à injection d'air", TJ60:'double fente 60°, goutte fine', TXB:'cône creux, goutte très fine', SJ7:'7 filets liquides pour engrais'},
+       famUse:{ diserbo:{AIXR:'Systémiques · antidérive · usage général', AI:'Systémiques · réduction maximale de la dérive', XR:'De contact · couverture maximale', AITTJ60:'Post-levée de contact (suggéré)'},
+                fungins:{AITTJ60:'Couverture et pénétration, antidérive', AI3070:'Blé et orge · couverture de l’épi', TXB:'Végétation dense · goutte fine', TJ60:'De contact · couverture maximale'},
+                concime:{SJ7:'Engrais liquides (ex. solution azotée) · pas de brûlures'} },
+       info:'Fiche de la buse', rTitle:'Évaluation TeeJet', gHerb:'Herbicides', gFung:'Fongicides', gIns:'Insecticides', gOther:'Autres',
+       cSoil:'Incorporés au sol', cCont:'De contact', cSys:'Systémiques', cDrift:'Contrôle de la dérive', cPwm:'Commande de buses PWM',
+       rE:'EXCELLENT', rMB:'TRÈS BON', rB:'BON', rN:'—', range:'Pression de travail', sizes:'Calibres', drops:'Goutte', travel:'avancement', sel:'Sélectionnée',
+       src:'Source : catalogue TeeJet 51A, guide de choix des buses. Toujours vérifier l’étiquette du produit.',
+       srcTXB:'Source : catalogue TeeJet 51A, guide des applications dirigées (atomiseur) et p. 41.',
+       srcSJ7:'Source : catalogue TeeJet 51A, guide engrais liquides : plein champ EXCELLENT, localisé TRÈS BON.',
+       notes:{ AIXR:'Grosses gouttes chargées d’air et plage de pression étendue (1–6 bar) : le compromis le plus polyvalent entre couverture et dérive.',
+               AI:'Injection d’air classique : gouttes ultra/extra grossières, excellent contrôle de la dérive. Fonctionne à partir de 2 bar.',
+               XR:'Goutte fine : couverture maximale pour les produits de contact, mais attention à la dérive (mieux sous 2–3 bar).',
+               AITTJ60:'Deux jets inclinés vers l’avant et l’arrière : mouille les deux côtés de la plante. En désherbage, suggéré pour les produits de contact en post-levée.',
+               AI3070:'Jet incliné de 30° vers l’avant pour pénétrer les cultures denses et de 70° vers l’arrière pour atteindre l’épi : idéal pour le blé et l’orge.',
+               TJ60:'Double fente à goutte fine : excellente pénétration dans la végétation dense et les résidus. Pression 2–4 bar.',
+               TXB:'Cône creux céramique : goutte très fine et couverture uniforme. Conçu pour les atomiseurs, utile pour insecticides et fongicides de contact ; idéal dès 3 bar.',
+               SJ7:'Sept filets compacts : l’engrais atteint le sol sans mouiller les feuilles, dérive quasi nulle. Pression 1,5–4 bar.' },
+       dataNote:"Données : catalogue TeeJet 51A (eau à 21 °C, ISO 25358) ; évaluations du guide de choix des buses. Pression limitée à celle de la pompe (1–6 bar). Valeurs indicatives : toujours vérifier le tableau de la buse et l'étiquette du produit." }
+};
+Object.keys(FAM_I18N).forEach(l => Object.assign(I18N[l], FAM_I18N[l]));
+
+
 // ---- Conferma interna (confirm() è bloccato in alcune anteprime/iframe e fallisce in silenzio) ----
 const DLG_I18N = {
   it:{ cancel:'Annulla', overwriteBtn:'Sovrascrivi' }, en:{ cancel:'Cancel', overwriteBtn:'Overwrite' },
@@ -824,37 +1106,49 @@ const $ = id => document.getElementById(id);
 // ---------------------------------------------------------------------
 function pressureFor(n, Q){ return Math.pow(Q / n.k, 2); }
 function flowAt(n, P){ return n.k * Math.sqrt(P); }
-function zoneOf(P){
-  if (P < P_MIN || P > P_MAX) return 'out';
-  if (P >= P_OPT_LO && P <= P_OPT_HI) return 'opt';
-  if (P >= P_ACC_LO && P <= P_ACC_HI) return 'ok';
+function zoneOf(P, f){
+  const z = zonesOf(f || FAMILIES.AIXR);
+  if (P < z.lo - 1e-9 || P > z.hi + 1e-9) return 'out';
+  if (P >= z.optLo && P <= z.optHi) return 'opt';
+  if (P >= z.accLo && P <= z.accHi) return 'ok';
   return 'edge';
 }
-function dropAt(n, P){ return n.drop[Math.min(6, Math.max(1, Math.round(P))) - 1]; }
+function dropAt(n, P){
+  if (!n.dd) return '';
+  let b = 0; n.dp.forEach((p, i) => { if (Math.abs(p - P) < Math.abs(n.dp[b] - P)) b = i; });
+  return n.dd[b];
+}
+// testi con "3–4" (zona ideale) e "AIXR" adattati alla tipologia scelta
+function famText(str, f){ const z = zonesOf(f); return String(str).replace('3–4', `${z.optLo}–${z.optHi}`).replace('AIXR', f.name); }
+function pbarBg(f){
+  const z = zonesOf(f), p = x => Math.min(100, Math.max(0, (x - P_MIN) / (P_MAX - P_MIN) * 100)).toFixed(1) + '%';
+  return `linear-gradient(90deg,#8a8f98 0 ${p(z.lo)},#e07a2f ${p(z.lo)} ${p(z.accLo)},#e0b020 ${p(z.accLo)} ${p(z.optLo)},#2e9f4f ${p(z.optLo)} ${p(z.optHi)},#e0b020 ${p(z.optHi)} ${p(z.accHi)},#e07a2f ${p(z.accHi)} ${p(z.hi)},#8a8f98 ${p(z.hi)} 100%)`;
+}
 function fmt(v, d){ return Number(v).toFixed(d); }
 
 // spacingCm: interasse; set: {lha, vel, nozzle}
 function evaluate(spacingCm, set){
   const s = spacingCm / 100;
-  if (!(set.lha > 0 && set.vel > 0 && s > 0)) return { ready:false };
+  if (!(set.lha > 0 && set.vel > 0 && s > 0)) return { ready:false, fam:famOf(set) };
   const Q = set.lha * set.vel * s / 600;               // l/min per ugello
-  const cands = NOZZLES.map(n => ({ n, P: pressureFor(n, Q) }))
-    .filter(c => c.P >= P_MIN - 1e-9 && c.P <= P_MAX + 1e-9)
-    .sort((a, b) => Math.abs(a.P - P_TARGET) - Math.abs(b.P - P_TARGET));
+  const fam = famOf(set), list = FAM_NOZZLES[fam.id], z = zonesOf(fam);   // misure e pressioni della tipologia scelta
+  const cands = list.map(n => ({ n, P: pressureFor(n, Q) }))
+    .filter(c => c.P >= z.lo - 1e-9 && c.P <= z.hi + 1e-9)
+    .sort((a, b) => Math.abs(a.P - z.target) - Math.abs(b.P - z.target));
   const best = cands[0] || null;
   let sel = null;
   if (set.nozzle) {
-    const n = NOZZLES.find(x => x.id === set.nozzle);
-    if (n) { const P = pressureFor(n, Q); if (P >= P_MIN - 1e-9 && P <= P_MAX + 1e-9) sel = { n, P }; }
+    const n = list.find(x => x.id === set.nozzle);
+    if (n) { const P = pressureFor(n, Q); if (P >= z.lo - 1e-9 && P <= z.hi + 1e-9) sel = { n, P }; }
   }
   if (!sel) sel = best;
-  return { ready:true, Q, s, cands, best, sel };
+  return { ready:true, Q, s, cands, best, sel, fam, list };
 }
 
 // ---------------------------------------------------------------------
 // Stato e interfaccia
 // ---------------------------------------------------------------------
-const state = { spacing:50, nSets:1, vmin:V_MIN_DEF, vmax:V_MAX_DEF, extra:[], sets:[0,1,2,3].map(() => ({ lha:0, vel:0, nozzle:null })) };
+const state = { spacing:50, nSets:1, vmin:V_MIN_DEF, vmax:V_MAX_DEF, extra:[], sets:[0,1,2,3].map(blankSet) };
 const setsHost = $('setsHost');
 const spacingEl = $('spacingCm');
 let spMode = '50';   // '50' | '25' | 'custom'
@@ -878,6 +1172,8 @@ function buildSets(){
     const sec = document.createElement('div');
     sec.className = 'section'; sec.id = 'setSec' + i;
     sec.innerHTML = `<h2 id="setTitle${i}"></h2><div class="card">
+      <div class="field tr-field"><label id="lblTreat${i}"></label><div class="seg tr-seg" id="treatSeg${i}">${
+        TREAT_IDS.map(t => `<button type="button" class="seg-btn" data-set="${i}" data-treat="${t}"></button>`).join('')}</div></div>
       <div class="two-col">
         <div class="field"><label id="lblLha${i}"></label><div class="input-row"><input type="number" id="lha${i}" inputmode="decimal" placeholder="0" value="0" min="0"><span class="u">l/ha</span></div></div>
         <div class="field"><label id="lblVel${i}"></label><div class="input-row"><input type="number" id="vel${i}" inputmode="decimal" placeholder="0" value="0" min="0"><span class="u">km/h</span></div></div>
@@ -893,47 +1189,158 @@ function setBadge(text, color){
   return `<span class="badge" style="border-color:${color};color:${color}">${esc(text)}</span>`;
 }
 
+
+// ---------------------------------------------------------------------
+// Scheda ugello (pulsante "i"): valutazioni TeeJet + disegno del getto
+// ---------------------------------------------------------------------
+function ibtn(fid, nz, P){
+  return `<span class="ibtn" role="button" tabindex="0" aria-label="${esc(T('info'))}" data-fam="${fid}"${nz ? ` data-nz="${nz}"` : ''}${P ? ` data-p="${P}"` : ''}>i</span>`;
+}
+// Disegno laterale del getto: avanzamento verso destra, ugello in alto
+function sprayIcon(kind){
+  const W = 240, H = 150, nx = 150, ny = 22, gy = 128;
+  let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`;
+  s += `<defs><marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker></defs>`;
+  s += `<line x1="18" y1="14" x2="92" y2="14" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" style="color:var(--text-dim)"/>`;
+  s += `<text x="18" y="30" font-size="10" fill="var(--text-dim)" font-family="Inter,sans-serif">${esc(T('travel'))}</text>`;
+  // coltura
+  for (let x = 12; x < W - 8; x += 9) {
+    const h = 26 + ((x * 7) % 11);
+    s += `<path d="M${x},${gy} q2,-${h / 2} ${(x % 2 ? 4 : -3)},-${h}" stroke="#4caf50" stroke-width="2" fill="none" opacity=".85"/>`;
+  }
+  s += `<rect x="0" y="${gy}" width="${W}" height="${H - gy}" fill="#6b4a2b"/>`;
+  let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+  const fan = (deg, half, drops, rMin, rMax, op, hollow) => {
+    const a = deg * Math.PI / 180, h = half * Math.PI / 180, L = Math.min((gy - ny) / Math.cos(a), 205);
+    const p1 = [nx + L * Math.sin(a - h), ny + L * Math.cos(a - h)], p2 = [nx + L * Math.sin(a + h), ny + L * Math.cos(a + h)];
+    let o = hollow ? `<path d="M${nx},${ny} L${p1[0]},${p1[1]} M${nx},${ny} L${p2[0]},${p2[1]}" stroke="#3aa0e6" stroke-width="5" opacity=".75"/>`
+                     + `<ellipse cx="${(p1[0] + p2[0]) / 2}" cy="${gy - 2}" rx="${Math.abs(p2[0] - p1[0]) / 2}" ry="6" fill="none" stroke="#3aa0e6" stroke-width="3" opacity=".7"/>`
+                   : `<polygon points="${nx},${ny} ${p1[0]},${p1[1]} ${p2[0]},${p2[1]}" fill="#3aa0e6" opacity="${op}"/>`;
+    for (let i = 0; i < drops; i++) {
+      const t = 0.25 + 0.75 * rnd(), u = hollow ? (rnd() < .5 ? -1 : 1) * (0.75 + 0.25 * rnd()) : (rnd() * 2 - 1);
+      const aa = a + u * h * 0.95, x = nx + t * L * Math.sin(aa), y = ny + t * L * Math.cos(aa);
+      if (y > gy - 2) continue;
+      const r = rMin + (rMax - rMin) * rnd();
+      o += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="#1d6fb8"/>`;
+      if (rMax >= 2.5 && r > 2) o += `<circle cx="${(x - r * .3).toFixed(1)}" cy="${(y - r * .3).toFixed(1)}" r="${(r * .35).toFixed(1)}" fill="#fff" opacity=".85"/>`;
+    }
+    return o;
+  };
+  const K = {
+    fan:     () => fan(0, 12, 26, 1.6, 2.8, .35),
+    fanAI:   () => fan(0, 12, 22, 2.2, 3.4, .32),
+    fanFine: () => fan(0, 13, 70, 0.7, 1.3, .45),
+    twin:    () => fan(30, 9, 34, 0.7, 1.4, .42) + fan(-30, 9, 34, 0.7, 1.4, .42),
+    twinAI:  () => fan(30, 9, 16, 2, 3.2, .32) + fan(-30, 9, 16, 2, 3.2, .32),
+    a3070:   () => fan(30, 8, 12, 1.8, 3, .32) + fan(-70, 6, 20, 1.8, 3, .32),
+    cone:    () => fan(0, 30, 70, 0.6, 1.1, 0, true),
+    streams: () => { let o = ''; for (let i = -3; i <= 3; i++) { const a = i * 11 * Math.PI / 180, L = (gy - ny) / Math.cos(a);
+                       o += `<line x1="${nx}" y1="${ny}" x2="${nx + L * Math.sin(a)}" y2="${gy}" stroke="#3aa0e6" stroke-width="3" stroke-linecap="round"/>`; } return o; }
+  };
+  s += (K[kind] || K.fan)();
+  s += `<rect x="${nx - 7}" y="${ny - 16}" width="14" height="14" rx="3" fill="#c62828"/><path d="M${nx - 5},${ny - 3} h10 l-2,5 h-6 z" fill="#8e1c1c"/>`;
+  return s + '</svg>';
+}
+function rateCell(r){
+  const cls = r === 'E' ? 'E' : r === 'MB' ? 'MB' : r === 'B' ? 'B' : 'N';
+  return `<span class="rt ${cls}">${esc(T('r' + cls))}</span>`;
+}
+function openNozzleInfo(fid, nzId, P){
+  const f = FAMILIES[fid]; if (!f) return;
+  closeNozzleInfo();
+  const list = FAM_NOZZLES[fid], n = nzId ? list.find(x => x.id === nzId) : null;
+  const z = zonesOf(f), caps = list.map(x => x.cap).join(' · ');
+  const ds = [...new Set(list.flatMap(x => x.dd || []))], order = ['XF','VF','F','M','C','VC','XC','UC'];
+  ds.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+  let body = '';
+  if (f.rate) {
+    const r = f.rate.split(' ');
+    const row = (lbl, v) => `<span>${esc(lbl)}</span>${rateCell(v)}`;
+    body = `<div class="ni-grid">
+      <div class="g">${esc(T('gHerb'))}</div>${row(T('cSoil'), r[0])}${row(T('cCont'), r[1])}${row(T('cSys'), r[2])}
+      <div class="g">${esc(T('gFung'))}</div>${row(T('cCont'), r[3])}${row(T('cSys'), r[4])}
+      <div class="g">${esc(T('gIns'))}</div>${row(T('cCont'), r[5])}${row(T('cSys'), r[6])}
+      <div class="g">${esc(T('gOther'))}</div>${row(T('cDrift'), r[7])}${row(T('cPwm'), r[8])}</div>`;
+  }
+  const sel = n ? `<div class="ni-sel"><span class="sw" style="background:${n.color}"></span><b>${esc(n.code)}</b> · ${esc(colorName(n))}${P ? ` · ${fmt(P, 1)} bar · ${esc(dropText(n, P))}` : ''}</div>` : '';
+  const src = fid === 'TXB' ? T('srcTXB') : fid === 'SJ7' ? T('srcSJ7') : T('src');
+  const ov = document.createElement('div'); ov.className = 'ni-ov'; ov.id = 'niOv';
+  ov.innerHTML = `<div class="ni" role="dialog" aria-modal="true">
+    <div class="ni-head"><div><h3>TeeJet ${esc(f.name)}</h3><p>${esc(T('famDesc')[fid])}</p></div><button type="button" class="ni-x" aria-label="×">×</button></div>
+    <div class="ni-icon">${sprayIcon(f.spray)}</div>
+    ${sel}
+    <div class="ni-note">${esc(T('notes')[fid])}</div>
+    ${f.rate ? `<div class="alts-title" style="margin-top:12px">${esc(T('rTitle'))}</div>` + body : ''}
+    <div class="ni-facts"><b>${esc(T('range'))}:</b> ${String(z.lo).replace('.', ',')}–${String(z.hi).replace('.', ',')} bar (${esc(T('zoneOpt').toLowerCase())} ${String(z.optLo).replace('.', ',')}–${String(z.optHi).replace('.', ',')})<br>
+      ${ds.length ? `<b>${esc(T('drops'))}:</b> ${ds.join(' – ')}<br>` : ''}<b>${esc(T('sizes'))}:</b> ${esc(caps)}</div>
+    <div class="ni-src">${esc(src)}</div></div>`;
+  ov.addEventListener('click', e => { if (e.target === ov || e.target.closest('.ni-x')) closeNozzleInfo(); });
+  document.body.appendChild(ov);
+  ov.querySelector('.ni-x').focus();
+}
+function closeNozzleInfo(){ const o = $('niOv'); if (o) o.remove(); }
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeNozzleInfo();
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ibtn')) { e.preventDefault(); e.target.click(); }
+});
+
+function famChips(i, set, fam){
+  const tr = treatOf(set);
+  return `<div class="alts-title">${esc(T('famTitle'))}</div><div class="fams" id="fams${i}">` + TREATMENTS[tr].map((fid, k) =>
+    `<button type="button" class="fam${fid === fam.id ? ' sel' : ''}" data-set="${i}" data-fam="${fid}"><b>${esc(FAMILIES[fid].name)}${k === 0 ? ' <em class="star" style="font-style:normal">★</em>' : ''}</b><span>${esc(T('famUse')[tr][fid])}</span>${ibtn(fid)}</button>`).join('') + '</div>' +
+    (tr === 'concime' ? `<div class="fert">${esc(T('fertNote'))}</div>` : '');
+}
+function colorName(n){ return T('colors')[CAP_NAME[n.cap]] || ''; }
+function dropText(n, P){
+  const f = FAMILIES[n.fam];
+  if (f.streams) return T('streams');
+  const d = dropAt(n, P); return `${T('droplet')}: ${d} · ${T('dropNames')[d] || d}`;
+}
 function renderResult(i){
   const set = state.sets[i], host = $('res' + i);
+  const tr = treatOf(set);
+  $('treatSeg' + i).querySelectorAll('.seg-btn').forEach(b => b.classList.toggle('active', b.dataset.treat === tr));
   const ev = evaluate(state.spacing, set);
-  if (!ev.ready) { host.innerHTML = `<div class="hint">${esc(T('enter'))}</div>`; return; }
+  const fam = ev.fam, chips = famChips(i, set, fam);
+  if (!ev.ready) { host.innerHTML = `<div class="hint" style="margin:0 0 4px">${esc(T('enter'))}</div>${chips}`; return; }
   const need = `${esc(T('flowNeeded'))}: <b>${fmt(ev.Q, 2)} l/min</b>`;
   if (!ev.sel) {
-    const maxQ = flowAt(NOZZLES[NOZZLES.length - 1], P_MAX);
-    host.innerHTML = `<div class="warnbox">${esc(ev.Q > maxQ ? T('tooMuch') : T('tooLittle'))}<br>${need}</div>`;
+    const maxQ = flowAt(ev.list[ev.list.length - 1], zonesOf(fam).hi);
+    host.innerHTML = `<div class="warnbox">${esc(famText(ev.Q > maxQ ? T('tooMuch') : T('tooLittle'), fam).replace('1 bar', zonesOf(fam).lo + ' bar'))}<br>${need}</div>${chips}`;
     return;
   }
-  const { n, P } = ev.sel, zone = zoneOf(P), zc = ZONE_COLOR[zone];
-  const drop = dropAt(n, P);
+  const { n, P } = ev.sel, z = zonesOf(fam), zone = zoneOf(P, fam), zc = ZONE_COLOR[zone];
   const pos = Math.min(100, Math.max(0, (P - P_MIN) / (P_MAX - P_MIN) * 100));
   const filt = n.mesh === 100 ? T('filter100') : n.mesh === 50 ? T('filter50') : T('filterNone');
   const zoneLabel = { opt:T('zoneOpt'), ok:T('zoneOk'), edge:T('zoneEdge'), out:T('zoneOut') }[zone];
   let advice = '';
-  if (zone === 'opt') advice = T('adviceOpt');
-  else if (P < P_ACC_LO) advice = T('adviceLow');
-  else if (P > P_ACC_HI) advice = T('adviceHigh');
-  const vLo = flowAt(n, P_OPT_LO) * 600 / (set.lha * ev.s), vHi = flowAt(n, P_OPT_HI) * 600 / (set.lha * ev.s);
+  if (zone === 'opt') advice = fam.streams ? '' : famText(T('adviceOpt'), fam);
+  else if (!fam.streams && P < z.accLo) advice = T('adviceLow');
+  else if (!fam.streams && P > z.accHi) advice = T('adviceHigh');
+  const vLo = flowAt(n, z.optLo) * 600 / (set.lha * ev.s), vHi = flowAt(n, z.optHi) * 600 / (set.lha * ev.s);
   const alts = ev.cands.length > 1 ? `<div class="alts-title">${esc(T('alternatives'))}</div><div class="alts">` + ev.cands.map(c => {
     const star = ev.best && c.n.id === ev.best.n.id ? ' <span class="star">★</span>' : '';
     return `<button type="button" class="alt${c.n.id === n.id ? ' sel' : ''}" data-set="${i}" data-nozzle="${c.n.id}">
-      <span class="sw" style="background:${c.n.color}"></span><span class="a-code">${esc(c.n.code)}${star}</span>
-      <span class="a-p" style="color:${ZONE_COLOR[zoneOf(c.P)]}">${fmt(c.P, 1)} bar</span><span class="a-d">${dropAt(c.n, c.P)}</span></button>`;
+      <span class="sw" style="background:${c.n.color}"></span><span class="a-code">${esc(c.n.code)}${star}</span>${ibtn(fam.id, c.n.id, c.P)}
+      <span class="a-p" style="color:${ZONE_COLOR[zoneOf(c.P, fam)]}">${fmt(c.P, 1)} bar</span><span class="a-d">${dropAt(c.n, c.P)}</span></button>`;
   }).join('') + '</div>' : '';
   host.innerHTML = `<div class="rec">
     <div class="rec-top">
       <span class="sw" style="background:${n.color}"></span>
-      <div class="rec-info"><div class="rec-code">${esc(n.code)} <small>${esc(n.variants)}</small></div>
+      <div class="rec-info"><div class="rec-code">${esc(n.code)} <small>${esc(n.variants)}</small> ${ibtn(fam.id, n.id, P)}</div>
+        <div class="rec-fam"><b>TeeJet ${esc(fam.name)}</b> · ${esc(T('famDesc')[fam.id])}</div>
         <div class="rec-sub">${need}</div></div>
       <div class="rec-p" style="color:${zc}">${fmt(P, 1)}<small>bar</small></div>
     </div>
-    <div class="pbar"><div class="pmark" style="left:${pos}%"></div></div>
+    <div class="pbar" style="background:${pbarBg(fam)}"><div class="pmark" style="left:${pos}%"></div></div>
     <div class="pscale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
     <div class="badges">${setBadge(zoneLabel, zc)}
-      <span class="badge">${esc(T('droplet'))}: ${drop} · ${esc(T('dropNames')[drop])}</span>
+      <span class="badge"><span class="sw" style="background:${n.color}"></span>${esc(T('colorLbl'))}: ${esc(colorName(n))}</span>
+      <span class="badge">${esc(dropText(n, P))}</span>
       <span class="badge">${esc(T('filter'))}: ${esc(filt)}</span></div>
     ${advice ? `<div class="advice">${esc(advice)}</div>` : ''}
-    <div class="vwin">${esc(T('speedWin')(fmt(vLo, 1), fmt(vHi, 1)))}</div>
-  </div>${alts}`;
+    <div class="vwin">${esc(famText(T('speedWin')(fmt(vLo, 1), fmt(vHi, 1)), fam))}</div>
+  </div>${chips}${alts}`;
 }
 
 function recalc(){
@@ -948,6 +1355,16 @@ function recalc(){
 }
 
 setsHost.addEventListener('click', e => {
+  const ib = e.target.closest('.ibtn');
+  if (ib) { e.preventDefault(); e.stopPropagation(); openNozzleInfo(ib.dataset.fam, ib.dataset.nz, parseFloat(ib.dataset.p)); return; }
+  const tb = e.target.closest('[data-treat]');
+  if (tb) {   // cambio trattamento: si riparte dalla tipologia consigliata
+    const st = state.sets[+tb.dataset.set];
+    if (st.treat !== tb.dataset.treat) { st.treat = tb.dataset.treat; st.fam = null; st.nozzle = null; recalc(); }
+    return;
+  }
+  const fb = e.target.closest('.fam');
+  if (fb) { const st = state.sets[+fb.dataset.set]; st.fam = fb.dataset.fam; st.nozzle = null; recalc(); return; }
   const b = e.target.closest('.alt');
   if (!b) return;
   state.sets[+b.dataset.set].nozzle = b.dataset.nozzle;
@@ -961,30 +1378,32 @@ setsHost.addEventListener('click', e => {
 function speedFor(n, P, d, s){ return flowAt(n, P) * 600 / (d * s); }   // km/h per avere P bar con dose d
 // Velocità migliore per dose d con ugello n, entro [vmin, vmax]: prima zona ottimale, poi accettabile
 function bestSpeed(n, d, s, vmin, vmax){
-  const vt = speedFor(n, P_TARGET, d, s);
+  const z = zonesN(n), vt = speedFor(n, z.target, d, s);
   const tryWin = (pl, ph, level) => {
+    pl = Math.max(pl, z.lo); ph = Math.min(ph, z.hi);
     const lo = Math.max(speedFor(n, pl, d, s), vmin), hi = Math.min(speedFor(n, ph, d, s), vmax);
     if (lo > hi + 1e-9) return null;
     const v = Math.min(hi, Math.max(lo, vt));
     return { n, v, P: pressureFor(n, d * v * s / 600), level };
   };
-  return tryWin(P_OPT_LO, P_OPT_HI, 'opt') || tryWin(P_ACC_LO, P_ACC_HI, 'ok');
+  return tryWin(z.optLo, z.optHi, 'opt') || tryWin(z.accLo, z.accHi, 'ok');
 }
 function betterRes(a, b){   // true se a è meglio di b
   if ((a.level === 'opt') !== (b.level === 'opt')) return a.level === 'opt';
-  return Math.abs(a.P - P_TARGET) < Math.abs(b.P - P_TARGET);
+  return Math.abs(a.P - zonesN(a.n).target) < Math.abs(b.P - zonesN(b.n).target);
 }
 function combos(n, k, start, cur, out){
   if (cur.length === k) { out.push(cur.slice()); return; }
   for (let i = start; i < n; i++) { cur.push(i); combos(n, k, i + 1, cur, out); cur.pop(); }
 }
 // Piano: numero minimo di set (1..4) che coprono tutte le dosi entro i limiti di velocità
-function planFor(doses, s, vmin, vmax){
-  const per = NOZZLES.map(n => doses.map(d => bestSpeed(n, d.lha, s, vmin, vmax)));
+function planFor(doses, s, vmin, vmax, list){
+  list = list || FAM_NOZZLES.AIXR;
+  const per = list.map(n => doses.map(d => bestSpeed(n, d.lha, s, vmin, vmax)));
   for (let k = 1; k <= 4; k++) {
-    const list = []; combos(NOZZLES.length, k, 0, [], list);
+    const cl = []; combos(list.length, k, 0, [], cl);
     let best = null;
-    list.forEach(cb => {
+    cl.forEach(cb => {
       const assign = doses.map((d, di) => {
         let pick = null;
         cb.forEach(ni => { const r = per[ni][di]; if (r && (!pick || betterRes(r, pick.r))) pick = { ni, r }; });
@@ -992,12 +1411,12 @@ function planFor(doses, s, vmin, vmax){
       });
       if (!assign.every(Boolean)) return;
       const opt = assign.filter(a => a.r.level === 'opt').length;
-      const dev = assign.reduce((x, a) => x + Math.abs(a.r.P - P_TARGET), 0);
+      const dev = assign.reduce((x, a) => x + Math.abs(a.r.P - zonesN(a.r.n).target), 0);
       if (!best || opt > best.opt || (opt === best.opt && dev < best.dev)) best = { cb, assign, opt, dev };
     });
     if (best) {
       const groups = [...new Set(best.assign.map(a => a.ni))].map(ni => ({
-        n: NOZZLES[ni], items: best.assign.map((a, di) => a.ni === ni ? { d:doses[di], r:a.r } : null).filter(Boolean)
+        n: list[ni], items: best.assign.map((a, di) => a.ni === ni ? { d:doses[di], r:a.r } : null).filter(Boolean)
       }));
       return { k: groups.length, groups };
     }
@@ -1013,7 +1432,7 @@ function analyzeExtra(){
     const r = bestSpeed(ev.sel.n, d, s, state.vmin, state.vmax);
     let alt = null;
     if (!r) {
-      const rs = NOZZLES.map(n => bestSpeed(n, d, s, state.vmin, state.vmax)).filter(Boolean);
+      const rs = ev.list.map(n => bestSpeed(n, d, s, state.vmin, state.vmax)).filter(Boolean);
       rs.sort((a, b) => betterRes(a, b) ? -1 : betterRes(b, a) ? 1 : Math.abs(a.v - set.vel) - Math.abs(b.v - set.vel));
       alt = rs[0] || null;
     }
@@ -1022,7 +1441,7 @@ function analyzeExtra(){
   const doses = [];
   if (set.lha > 0) doses.push({ lha:set.lha, main:true });
   state.extra.forEach(d => { if (d > 0) doses.push({ lha:d }); });
-  const plan = doses.length >= 2 && s > 0 ? planFor(doses, s, state.vmin, state.vmax) : null;
+  const plan = doses.length >= 2 && s > 0 ? planFor(doses, s, state.vmin, state.vmax, FAM_NOZZLES[famOf(set).id]) : null;
   return { ev, set, s, rows, doses, plan, hasPlan: doses.length >= 2 && s > 0 };
 }
 function speedAction(v, vRef){
@@ -1058,12 +1477,12 @@ function renderExtra(){
   a.rows.forEach(row => {
     const host = $('xr' + row.i); if (!host) return;
     if (row.r) {
-      const z = zoneOf(row.r.P);
+      const z = zoneOf(row.r.P, a.ev.fam);
       host.innerHTML = `<span class="big">${esc(speedAction(row.r.v, a.set.vel))}</span> → <b style="color:${ZONE_COLOR[z]}">${fmt(row.r.P, 1)} bar</b> ${setBadge(zoneLabelOf(z), ZONE_COLOR[z])}`;
     } else if (row.alt) {
       host.innerHTML = `<div class="warnbox">${esc(T('needSet')(row.alt.n.code, fmt(row.alt.v, 1), fmt(row.alt.P, 1)))}</div>`;
     } else {
-      host.innerHTML = `<div class="warnbox">${esc(T('noSolution'))}</div>`;
+      host.innerHTML = `<div class="warnbox">${esc(famText(T('noSolution'), a.ev.fam))}</div>`;
     }
   });
   if (a.hasPlan) {
@@ -1122,7 +1541,7 @@ function pushStateToUI(){
 
 $('resetBtn').addEventListener('click', () => {
   state.spacing = 50; state.nSets = 1; state.vmin = V_MIN_DEF; state.vmax = V_MAX_DEF; state.extra = [];
-  state.sets = [0,1,2,3].map(() => ({ lha:0, vel:0, nozzle:null }));
+  state.sets = [0,1,2,3].map(blankSet);
   pushStateToUI();
 });
 
@@ -1134,11 +1553,11 @@ const STORAGE_KEY = 'caffini_campo_aperto_configs_v1';
 // Ogni preset: interasse (cm) e un set per ogni dosaggio. Per aggiungerne basta un nuovo oggetto.
 const PRESETS = [
   { id:'diserbo', group:'single', name:{it:'Diserbo – 150 l/ha · 10 km/h', en:'Herbicide – 150 l/ha · 10 km/h', es:'Herbicida – 150 l/ha · 10 km/h', de:'Herbizid – 150 l/ha · 10 km/h', fr:'Désherbage – 150 l/ha · 10 km/h'},
-    spacing:50, sets:[{lha:150, vel:10}] },
+    spacing:50, sets:[{lha:150, vel:10, treat:'diserbo'}] },
   { id:'fungicidi', group:'single', name:{it:'Fungicidi / insetticidi – 200 l/ha · 8 km/h', en:'Fungicides / insecticides – 200 l/ha · 8 km/h', es:'Fungicidas / insecticidas – 200 l/ha · 8 km/h', de:'Fungizide / Insektizide – 200 l/ha · 8 km/h', fr:'Fongicides / insecticides – 200 l/ha · 8 km/h'},
-    spacing:50, sets:[{lha:200, vel:8}] },
-  { id:'fogliare', group:'single', name:{it:'Concimazione fogliare – 300 l/ha · 6 km/h', en:'Foliar fertilisation – 300 l/ha · 6 km/h', es:'Abonado foliar – 300 l/ha · 6 km/h', de:'Blattdüngung – 300 l/ha · 6 km/h', fr:'Fertilisation foliaire – 300 l/ha · 6 km/h'},
-    spacing:50, sets:[{lha:300, vel:6}] },
+    spacing:50, sets:[{lha:200, vel:8, treat:'fungins'}] },
+  { id:'fogliare', group:'single', name:{it:'Concimazione liquida – 300 l/ha · 6 km/h', en:'Liquid fertiliser – 300 l/ha · 6 km/h', es:'Abonado líquido – 300 l/ha · 6 km/h', de:'Flüssigdüngung – 300 l/ha · 6 km/h', fr:'Engrais liquide – 300 l/ha · 6 km/h'},
+    spacing:50, sets:[{lha:300, vel:6, treat:'concime'}] },
   { id:'unset', group:'single', name:{it:'1 set – dosaggi 100/150/200/300 l/ha variando la velocità', en:'1 set – rates 100/150/200/300 l/ha by changing speed', es:'1 serie – dosis 100/150/200/300 l/ha variando la velocidad', de:'1 Satz – 100/150/200/300 l/ha über die Geschwindigkeit', fr:'1 série – doses 100/150/200/300 l/ha en variant la vitesse'},
     spacing:50, sets:[{lha:150, vel:10}], extra:[100, 200, 300] },
   { id:'multi2', group:'multi', name:{it:'2 set – 100 / 200 l/ha · 10 km/h', en:'2 sets – 100 / 200 l/ha · 10 km/h', es:'2 series – 100 / 200 l/ha · 10 km/h', de:'2 Sätze – 100 / 200 l/ha · 10 km/h', fr:'2 séries – 100 / 200 l/ha · 10 km/h'},
@@ -1154,7 +1573,9 @@ function sanitizeConfig(o){
   const sp = num(o.spacing) || 50;
   const sets = o.sets.slice(0, 4).map(s => ({
     lha: num(s && s.lha), vel: num(s && s.vel),
-    nozzle: (s && NOZZLES.some(n => n.id === s.nozzle)) ? s.nozzle : null
+    nozzle: (s && Object.values(FAM_NOZZLES).some(l => l.some(n => n.id === s.nozzle))) ? s.nozzle : null,
+    treat: (s && TREATMENTS[s.treat]) ? s.treat : TREAT_DEF,
+    fam: (s && FAMILIES[s.fam]) ? s.fam : null
   }));
   let vmin = num(o.vmin) || V_MIN_DEF, vmax = num(o.vmax) || V_MAX_DEF;
   if (vmax <= vmin) { vmin = V_MIN_DEF; vmax = V_MAX_DEF; }
@@ -1181,14 +1602,14 @@ function applyConfig(cfg){
   state.vmin = cfg.vmin || V_MIN_DEF; state.vmax = cfg.vmax || V_MAX_DEF;
   state.extra = (cfg.sets.length === 1 && cfg.extra) ? cfg.extra.slice(0, MAX_EXTRA) : [];
   state.nSets = Math.min(4, Math.max(1, cfg.sets.length));
-  state.sets = [0,1,2,3].map(i => cfg.sets[i] ? { lha:cfg.sets[i].lha || 0, vel:cfg.sets[i].vel || 0, nozzle:cfg.sets[i].nozzle || null } : { lha:0, vel:0, nozzle:null });
+  state.sets = [0,1,2,3].map(i => cfg.sets[i] ? { lha:cfg.sets[i].lha || 0, vel:cfg.sets[i].vel || 0, nozzle:cfg.sets[i].nozzle || null, treat:TREATMENTS[cfg.sets[i].treat] ? cfg.sets[i].treat : TREAT_DEF, fam:cfg.sets[i].fam || null } : blankSet());
   pushStateToUI();
 }
 function describeConfig(cfg){
   return cfg.sets.map((s, i) => {
     const ev = evaluate(cfg.spacing || 50, s);
     const res = ev.ready && ev.sel ? `${ev.sel.n.code} · ${fmt(ev.sel.P, 1)} bar` : '–';
-    return `${T('setN')(i + 1)}: ${s.lha} l/ha · ${s.vel} km/h → ${res}`;
+    return `${T('setN')(i + 1)} · ${T('tNames')[treatOf(s)]}: ${s.lha} l/ha · ${s.vel} km/h → ${res}`;
   }).join('\n') + (cfg.sets.length === 1 && cfg.extra && cfg.extra.length ? `\n+ ${cfg.extra.join(' / ')} l/ha (${T('rSpeed').toLowerCase()})` : '');
 }
 function mkOpt(v, t){ const o = document.createElement('option'); o.value = v; o.textContent = t; return o; }
@@ -1234,7 +1655,7 @@ savedSelect.addEventListener('change', () => {
 function currentConfigData(){
   const sets = state.sets.slice(0, state.nSets).map(s => {
     const ev = evaluate(state.spacing, s);
-    return { lha:s.lha, vel:s.vel, nozzle: ev.ready && ev.sel ? ev.sel.n.id : null };
+    return { lha:s.lha, vel:s.vel, nozzle: ev.ready && ev.sel ? ev.sel.n.id : null, treat:treatOf(s), fam:famOf(s).id };
   });
   return { spacing: state.spacing || 50, vmin:state.vmin, vmax:state.vmax, extra: state.nSets === 1 ? state.extra.filter(v => v > 0) : [], sets };
 }
@@ -1268,18 +1689,20 @@ $('cfgDelete').addEventListener('click', async () => {
 function reportSetHTML(i){
   const s = state.sets[i], ev = evaluate(state.spacing, s);
   if (!ev.ready || !ev.sel) return '';
-  const { n, P } = ev.sel, zone = zoneOf(P), zc = ZONE_COLOR[zone];
+  const fam = ev.fam, z = zonesOf(fam);
+  const { n, P } = ev.sel, zone = zoneOf(P, fam), zc = ZONE_COLOR[zone];
   const zoneLabel = { opt:T('zoneOpt'), ok:T('zoneOk'), edge:T('zoneEdge'), out:T('zoneOut') }[zone];
-  const drop = dropAt(n, P), near = Math.min(6, Math.max(1, Math.round(P)));
+  const near = Math.min(6, Math.max(1, Math.round(P)));
   const filt = n.mesh === 100 ? T('filter100') : n.mesh === 50 ? T('filter50') : T('filterNone');
-  const vLo = flowAt(n, P_OPT_LO) * 600 / (s.lha * ev.s), vHi = flowAt(n, P_OPT_HI) * 600 / (s.lha * ev.s);
-  const head = [1,2,3,4,5,6].map(b => `<th class="num">${b} bar</th>`).join('');
-  const qRow = n.q.map((q, k) => `<td class="num"${k + 1 === near ? ' style="font-weight:700;background:#e6f4ea"' : ''}>${fmt(q, 2)}</td>`).join('');
-  const dRow = n.drop.map((d, k) => `<td class="num"${k + 1 === near ? ' style="font-weight:700;background:#e6f4ea"' : ''}>${d}</td>`).join('');
+  const vLo = flowAt(n, z.optLo) * 600 / (s.lha * ev.s), vHi = flowAt(n, z.optHi) * 600 / (s.lha * ev.s);
+  let nb = 0; n.dp.forEach((p, k) => { if (Math.abs(p - P) < Math.abs(n.dp[nb] - P)) nb = k; });
+  const head = n.dp.map(b => `<th class="num">${String(b).replace('.', ',')} bar</th>`).join('');
+  const qRow = n.qp.map((q, k) => `<td class="num"${k === nb ? ' style="font-weight:700;background:#e6f4ea"' : ''}>${fmt(q, 2)}</td>`).join('');
+  const dRow = !n.dd ? '' : n.dd.map((d, k) => `<td class="num"${k === nb ? ' style="font-weight:700;background:#e6f4ea"' : ''}>${d}</td>`).join('');
   let advice = '';
-  if (zone === 'opt') advice = T('adviceOpt'); else if (P < P_ACC_LO) advice = T('adviceLow'); else if (P > P_ACC_HI) advice = T('adviceHigh');
-  return `<div class="r-series"><h3>${esc(T('setN')(i + 1))}</h3>
-    <div class="r-fam"><span class="r-sw" style="background:${n.color}"></span><b>${esc(n.code)}</b> ${esc(n.variants)} · ${esc(T('filter'))}: ${esc(filt)}</div>
+  if (zone === 'opt') advice = fam.streams ? '' : famText(T('adviceOpt'), fam); else if (!fam.streams && P < z.accLo) advice = T('adviceLow'); else if (!fam.streams && P > z.accHi) advice = T('adviceHigh');
+  return `<div class="r-series"><h3>${esc(T('setN')(i + 1))} – ${esc(T('tNames')[treatOf(s)])}</h3>
+    <div class="r-fam"><span class="r-sw" style="background:${n.color}"></span><b>${esc(n.code)}</b> ${esc(n.variants)} · ${esc(T('rType'))}: <b>TeeJet ${esc(fam.name)}</b> (${esc(T('famDesc')[fam.id])}) · ${esc(T('colorLbl'))}: <b>${esc(colorName(n))}</b> · ${esc(T('filter'))}: ${esc(filt)}</div>
     <div class="r-kv">
       <div><b>${s.lha}</b><span>${esc(T('dose'))} (l/ha)</span></div>
       <div><b>${s.vel}</b><span>${esc(T('speed'))} (km/h)</span></div>
@@ -1288,18 +1711,18 @@ function reportSetHTML(i){
     </div>
     <div class="r-sub">${esc(T('rNominal'))}</div>
     <table><thead><tr><th>${esc(T('rNozzle'))}</th>${head}</tr></thead>
-      <tbody><tr><td>${esc(T('rLmin'))}</td>${qRow}</tr><tr><td>${esc(T('droplet'))}</td>${dRow}</tr></tbody></table>
-    <div class="r-warn" style="color:#333">${esc(T('droplet'))}: <b>${drop}</b> – ${esc(T('dropNames')[drop])} · ${esc(T('speedWin')(fmt(vLo, 1), fmt(vHi, 1)))}</div>
-    ${advice ? `<div class="r-warn">${esc(advice)}</div>` : ''}
+      <tbody><tr><td>${esc(T('rLmin'))}</td>${qRow}</tr>${dRow ? `<tr><td>${esc(T('droplet'))}</td>${dRow}</tr>` : ''}</tbody></table>
+    <div class="r-warn" style="color:#333">${esc(dropText(n, P))} · ${esc(famText(T('speedWin')(fmt(vLo, 1), fmt(vHi, 1)), fam))}</div>
+    ${advice ? `<div class="r-warn">${esc(advice)}</div>` : ''}${treatOf(s) === 'concime' ? `<div class="r-warn" style="color:#333">${esc(T('fertNote'))}</div>` : ''}
   </div>`;
 }
 function reportExtraHTML(){
   const a = analyzeExtra();
   if (!a || (!a.rows.length && !a.plan)) return '';
   const rows = a.rows.map(row => {
-    if (row.r) { const z = zoneOf(row.r.P);
+    if (row.r) { const z = zoneOf(row.r.P, a.ev.fam);
       return `<tr><td class="num">${row.d}</td><td>${esc(speedAction(row.r.v, a.set.vel))}</td><td class="num" style="color:${ZONE_COLOR[z]}">${fmt(row.r.P, 1)} bar</td><td>${esc(zoneLabelOf(z))}</td></tr>`; }
-    const msg = row.alt ? T('needSet')(row.alt.n.code, fmt(row.alt.v, 1), fmt(row.alt.P, 1)) : T('noSolution');
+    const msg = row.alt ? T('needSet')(row.alt.n.code, fmt(row.alt.v, 1), fmt(row.alt.P, 1)) : famText(T('noSolution'), a.ev.fam);
     return `<tr><td class="num">${row.d}</td><td colspan="3" style="color:#b45309">${esc(msg)}</td></tr>`;
   }).join('');
   let plan = '';
@@ -1367,6 +1790,8 @@ function applyLanguage(lang){
   for (let i = 0; i < 4; i++) {
     $('setTitle' + i).textContent = T('setN')(i + 1);
     $('lblLha' + i).textContent = T('dose'); $('lblVel' + i).textContent = T('speed');
+    $('lblTreat' + i).textContent = T('treat');
+    $('treatSeg' + i).querySelectorAll('.seg-btn').forEach(b => { b.textContent = T('tNames')[b.dataset.treat]; });
   }
   $('lblVLimits').textContent = T('vLimits');
   $('extraTitle').textContent = T('extraTitle'); $('extraHint').textContent = T('extraHint'); $('addDose').textContent = T('addDose');
@@ -1395,5 +1820,330 @@ applyLanguage('it');
 setCount(1);
 
 </script>
+
+<script>
+// ===== Tutorial: copione di questa pagina (testi nelle 5 lingue + azioni dimostrative) =====
+window.CAFFINI_TOUR = {
+  id:'campo_aperto',
+  texts:{
+    it:{ s6b:'Tocca la «i» accanto a un ugello: si apre la scheda con il disegno del getto e per cosa è adatto secondo TeeJet.',
+         s1:'Questo strumento sceglie l’ugello TeeJet giusto per il tuo trattamento: tipologia, colore ISO e pressione di lavoro.',
+         s2:'Parti dai dati macchina: interasse degli ugelli, velocità minima e massima, numero di set montati sul portaugelli.',
+         s3:'Scegli il tipo di trattamento: diserbo, fungicidi / insetticidi oppure concimazione liquida.',
+         s4:'Inserisci la dose di prodotto in l/ha e la velocità di avanzamento in km/h.',
+         s5:'Ecco l’ugello consigliato: tipologia, misura, colore ISO e pressione. Il verde indica la zona di pressione ideale.',
+         s6:'Per ogni trattamento trovi le tipologie adatte: la stella indica la più consigliata. Tocca per cambiarla.',
+         s7:'Qui sotto ci sono le misure alternative della stessa tipologia, ognuna con la sua pressione.',
+         s8:'Con un solo set puoi aggiungere altri dosaggi: lo strumento ti dice a che velocità lavorare o se serve un altro set.',
+         s9:'Infine puoi partire da un preset, salvare le tue configurazioni personalizzate e creare il report PDF.' },
+    en:{ s6b:'Tap the “i” next to a nozzle: a sheet opens with the spray pattern and what TeeJet rates it for.',
+         s1:'This tool picks the right TeeJet nozzle for your treatment: type, ISO colour and working pressure.',
+         s2:'Start with the machine data: nozzle spacing, minimum and maximum speed, number of sets on the nozzle body.',
+         s3:'Choose the treatment type: herbicide, fungicides / insecticides or liquid fertiliser.',
+         s4:'Enter the product rate in l/ha and the forward speed in km/h.',
+         s5:'Here is the recommended nozzle: type, size, ISO colour and pressure. Green marks the ideal pressure zone.',
+         s6:'For each treatment you get the suitable nozzle types: the star marks the recommended one. Tap to change it.',
+         s7:'Below are the alternative sizes of the same type, each with its own pressure.',
+         s8:'With a single set you can add other rates: the tool tells you which speed to use or whether another set is needed.',
+         s9:'Finally, start from a preset, save your own custom configurations and create the PDF report.' },
+    es:{ s6b:'Toca la «i» junto a una boquilla: se abre la ficha con el dibujo del chorro y para qué es adecuada según TeeJet.',
+         s1:'Esta herramienta elige la boquilla TeeJet adecuada para tu tratamiento: tipo, color ISO y presión de trabajo.',
+         s2:'Empieza por los datos de la máquina: separación de boquillas, velocidad mínima y máxima, número de series del portaboquillas.',
+         s3:'Elige el tipo de tratamiento: herbicida, fungicidas / insecticidas o abonado líquido.',
+         s4:'Introduce la dosis de producto en l/ha y la velocidad de avance en km/h.',
+         s5:'Esta es la boquilla recomendada: tipo, tamaño, color ISO y presión. El verde indica la zona de presión ideal.',
+         s6:'Para cada tratamiento verás los tipos adecuados: la estrella indica el más recomendado. Toca para cambiarlo.',
+         s7:'Debajo están los tamaños alternativos del mismo tipo, cada uno con su presión.',
+         s8:'Con una sola serie puedes añadir otras dosis: la herramienta indica a qué velocidad trabajar o si hace falta otra serie.',
+         s9:'Por último, puedes partir de un preset, guardar tus configuraciones personalizadas y crear el informe PDF.' },
+    de:{ s6b:'Tippen Sie auf das „i“ neben einer Düse: Es öffnet sich ein Blatt mit dem Spritzbild und der TeeJet-Bewertung.',
+         s1:'Dieses Tool wählt die passende TeeJet-Düse für Ihre Behandlung: Typ, ISO-Farbe und Arbeitsdruck.',
+         s2:'Beginnen Sie mit den Maschinendaten: Düsenabstand, minimale und maximale Geschwindigkeit, Anzahl der Düsensätze.',
+         s3:'Wählen Sie die Behandlungsart: Herbizid, Fungizide / Insektizide oder Flüssigdüngung.',
+         s4:'Geben Sie die Aufwandmenge in l/ha und die Fahrgeschwindigkeit in km/h ein.',
+         s5:'Hier ist die empfohlene Düse: Typ, Größe, ISO-Farbe und Druck. Grün zeigt den idealen Druckbereich.',
+         s6:'Für jede Behandlung sehen Sie die geeigneten Düsentypen: Der Stern markiert die Empfehlung. Zum Ändern antippen.',
+         s7:'Darunter stehen die alternativen Größen desselben Typs, jeweils mit ihrem Druck.',
+         s8:'Mit nur einem Satz können Sie weitere Aufwandmengen hinzufügen: Das Tool nennt die Geschwindigkeit oder empfiehlt einen weiteren Satz.',
+         s9:'Zum Schluss: mit einer Voreinstellung starten, eigene Konfigurationen speichern und den PDF-Bericht erstellen.' },
+    fr:{ s6b:'Touchez le « i » à côté d’une buse : une fiche s’ouvre avec le dessin du jet et ses usages selon TeeJet.',
+         s1:'Cet outil choisit la bonne buse TeeJet pour votre traitement : type, couleur ISO et pression de travail.',
+         s2:'Commencez par les données machine : écartement des buses, vitesse minimale et maximale, nombre de séries sur le porte-buses.',
+         s3:'Choisissez le type de traitement : désherbage, fongicides / insecticides ou engrais liquide.',
+         s4:'Saisissez la dose de produit en l/ha et la vitesse d’avancement en km/h.',
+         s5:'Voici la buse conseillée : type, calibre, couleur ISO et pression. Le vert indique la zone de pression idéale.',
+         s6:'Pour chaque traitement, vous voyez les types adaptés : l’étoile indique le plus conseillé. Touchez pour en changer.',
+         s7:'En dessous se trouvent les calibres alternatifs du même type, chacun avec sa pression.',
+         s8:'Avec une seule série, vous pouvez ajouter d’autres doses : l’outil indique la vitesse à adopter ou si une autre série est nécessaire.',
+         s9:'Enfin, partez d’un préréglage, enregistrez vos configurations personnalisées et créez le rapport PDF.' }
+  },
+  steps:[
+    { text:'s1' },
+    { text:'s2', el:'#secMachine .card', run: async a => { await a.click('#sp50'); } },
+    { text:'s3', el:'#treatSeg0', run: async a => { await a.click('#treatSeg0 [data-treat="fungins"]'); } },
+    { text:'s4', el:'#setSec0 .two-col', run: async a => { await a.type('#lha0', 200); await a.type('#vel0', 8); } },
+    { text:'s5', el:'#res0 .rec' },
+    { text:'s6', el:'#res0 .fams', run: async a => { await a.click('#res0 .fam[data-fam="AI3070"]'); await a.wait(1500); await a.click('#res0 .fam[data-fam="AITTJ60"]'); } },
+    { text:'s6b', el:'#res0 .fams', run: async a => {
+        await a.click('#res0 .fam[data-fam="AI3070"] .ibtn'); a.spot('#niOv .ni'); await a.wait(5200);
+        await a.click('#niOv .ni-x'); a.spot('#res0 .fams'); } },
+    { text:'s7', el:'#res0 .alts', run: async a => {
+        await a.click('#res0 .alt:not(.sel)'); await a.wait(1300);
+        await a.click(() => [...document.querySelectorAll('#res0 .alt')].find(b => b.querySelector('.star'))); } },
+    { text:'s8', el:'#extraSection .card', run: async a => { await a.click('#addDose'); await a.type('#xl0', 300); } },
+    { text:'s9', el:'#secCfg .card' }
+  ],
+  snapshot(){ return { st:JSON.stringify(state), name:cfgName.value, p:presetSelect.value, s:savedSelect.value }; },
+  prepare(){ document.getElementById('resetBtn').click(); presetSelect.value = ''; savedSelect.value = ''; cfgName.value = ''; showDesc(); },
+  restore(o){ if (!o) return; Object.assign(state, JSON.parse(o.st)); pushStateToUI(); cfgName.value = o.name; presetSelect.value = o.p; savedSelect.value = o.s; showDesc(); }
+};
+</script>
+<!-- ===== TUTORIAL ANIMATO (stile video) — motore comune a tutti i tool CAFFINI ===== -->
+<style>
+  .tut-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 11px 6px 7px;border-radius:999px;border:1px solid var(--accent,#00952b);
+    background:var(--panel,#1e2126);color:var(--text,#eef0f2);font:700 11px 'Inter',sans-serif;letter-spacing:.02em;cursor:pointer;white-space:nowrap;}
+  .tut-btn i{width:18px;height:18px;border-radius:50%;background:var(--accent,#00952b);color:#fff;font-style:normal;font-size:8px;
+    display:inline-flex;align-items:center;justify-content:center;padding-left:1px;}
+  .tut-btn:active{opacity:.8;}
+  @media (max-width:359px){.tut-btn span{display:none;}.tut-btn{padding:6px 7px;}}
+  @media (min-width:1100px){.app-head .tut-btn{grid-column:3;grid-row:1;justify-self:end;margin-right:44px;}}
+  #tutRoot[hidden]{display:none;}
+  .tut-block{position:fixed;inset:0;z-index:2990;background:transparent;}
+  .tut-spot{position:fixed;z-index:2991;border-radius:12px;pointer-events:none;
+    box-shadow:0 0 0 3px var(--accent,#00952b),0 0 0 200vmax rgba(8,10,12,.66);}
+  .tut-spot.none{box-shadow:0 0 0 200vmax rgba(8,10,12,.66);}
+  .tut-cur{position:fixed;left:0;top:0;z-index:2993;width:26px;height:26px;pointer-events:none;opacity:0;transition:opacity .25s;
+    filter:drop-shadow(0 2px 3px rgba(0,0,0,.5));}
+  .tut-cur.on{opacity:1;}
+  .tut-cur svg{display:block;width:26px;height:26px;}
+  .tut-rip{position:fixed;z-index:2992;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;pointer-events:none;
+    border:3px solid var(--accent,#00952b);animation:tutRip .55s ease-out forwards;}
+  @keyframes tutRip{from{transform:scale(.4);opacity:1;}to{transform:scale(4.2);opacity:0;}}
+  .tut-bar{position:fixed;z-index:2994;left:50%;transform:translateX(-50%);bottom:14px;width:calc(100% - 20px);max-width:760px;
+    background:#101215;color:#f2f4f6;border:1px solid #2c3138;border-radius:14px;overflow:hidden;
+    box-shadow:0 14px 44px rgba(0,0,0,.55);font-family:'Inter',sans-serif;transition:top .3s,bottom .3s;}
+  .tut-bar.top{bottom:auto;top:14px;}
+  .tut-prog{height:4px;background:#2c3138;}
+  .tut-prog b{display:block;height:100%;width:0;background:#00b233;transition:width .45s linear;}
+  .tut-body{padding:13px 14px 11px;}
+  .tut-kick{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#4cc46c;margin-bottom:5px;
+    display:flex;justify-content:space-between;gap:10px;}
+  .tut-kick span:last-child{color:#8d949e;font-family:'Roboto Mono',monospace;letter-spacing:0;}
+  .tut-text{font-size:15.5px;line-height:1.45;font-weight:500;min-height:2.9em;}
+  .tut-ctl{display:flex;align-items:center;gap:8px;margin-top:10px;}
+  .tut-ctl button{height:36px;min-width:42px;padding:0 12px;border-radius:9px;border:1px solid #3a4048;background:#1b1e23;color:#f2f4f6;
+    font:600 13px 'Inter',sans-serif;cursor:pointer;}
+  .tut-ctl button:active{opacity:.75;}
+  .tut-ctl .tut-pp{background:#00952b;border-color:#00952b;min-width:52px;}
+  .tut-ctl .tut-x{margin-left:auto;}
+  .tut-ov{position:fixed;inset:0;z-index:3000;background:rgba(8,10,12,.66);display:flex;align-items:center;justify-content:center;padding:20px;}
+  .tut-card{background:var(--panel,#1e2126);color:var(--text,#eef0f2);border:1px solid var(--line,#33383f);border-radius:16px;
+    padding:22px;max-width:400px;width:100%;text-align:center;box-shadow:0 14px 44px rgba(0,0,0,.5);font-family:'Inter',sans-serif;}
+  .tut-play{width:64px;height:64px;border-radius:50%;background:var(--accent,#00952b);color:#fff;font-size:24px;margin:0 auto 14px;
+    display:flex;align-items:center;justify-content:center;padding-left:5px;}
+  .tut-card h3{font-family:'Oswald',sans-serif;font-size:19px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;margin:0 0 8px;}
+  .tut-card p{font-size:14px;line-height:1.5;color:var(--text-dim,#9aa1ab);margin:0 0 18px;}
+  .tut-card .tut-acts{display:flex;gap:10px;}
+  .tut-card button{flex:1;min-height:44px;border-radius:10px;border:1px solid var(--line,#33383f);background:var(--panel-2,#262a31);
+    color:var(--text,#eef0f2);font:600 14px 'Inter',sans-serif;cursor:pointer;}
+  .tut-card button.pri{background:var(--accent,#00952b);border-color:var(--accent,#00952b);color:#fff;}
+  @media print{.tut-btn,#tutRoot,.tut-ov{display:none !important;}}
+  @media (prefers-reduced-motion:reduce){.tut-rip{animation:none;opacity:0;}}
+</style>
+<script>
+(function(){
+  'use strict';
+  const C = window.CAFFINI_TOUR; if (!C) return;
+  const L = {
+    it:{ btn:'Tutorial', kick:'Video tutorial', wTitle:'Video tutorial', wText:'Prima volta qui? Guarda in circa un minuto come funziona questa pagina. I valori mostrati sono solo di esempio.',
+         watch:'▶ Guarda', skip:'Salta', eTitle:'Fine del tutorial', eText:'Puoi rivederlo quando vuoi con il pulsante «Tutorial» in alto.', replay:'Rivedi', close:'Chiudi' },
+    en:{ btn:'Tutorial', kick:'Video tutorial', wTitle:'Video tutorial', wText:'First time here? See how this page works in about one minute. The values shown are examples only.',
+         watch:'▶ Watch', skip:'Skip', eTitle:'End of tutorial', eText:'You can watch it again any time with the “Tutorial” button at the top.', replay:'Replay', close:'Close' },
+    es:{ btn:'Tutorial', kick:'Videotutorial', wTitle:'Videotutorial', wText:'¿Primera vez aquí? Mira en aproximadamente un minuto cómo funciona esta página. Los valores mostrados son solo de ejemplo.',
+         watch:'▶ Ver', skip:'Omitir', eTitle:'Fin del tutorial', eText:'Puedes volver a verlo cuando quieras con el botón «Tutorial» de arriba.', replay:'Repetir', close:'Cerrar' },
+    de:{ btn:'Tutorial', kick:'Video-Tutorial', wTitle:'Video-Tutorial', wText:'Zum ersten Mal hier? In etwa einer Minute sehen Sie, wie diese Seite funktioniert. Die gezeigten Werte sind nur Beispiele.',
+         watch:'▶ Ansehen', skip:'Überspringen', eTitle:'Ende des Tutorials', eText:'Über die Schaltfläche „Tutorial“ oben können Sie es jederzeit erneut ansehen.', replay:'Wiederholen', close:'Schließen' },
+    fr:{ btn:'Tutoriel', kick:'Tutoriel vidéo', wTitle:'Tutoriel vidéo', wText:"Première visite ? Découvrez en une minute environ comment fonctionne cette page. Les valeurs affichées sont de simples exemples.",
+         watch:'▶ Regarder', skip:'Passer', eTitle:'Fin du tutoriel', eText:'Vous pouvez le revoir à tout moment avec le bouton « Tutoriel » en haut.', replay:'Revoir', close:'Fermer' }
+  };
+  const lang = () => { try { return (typeof currentLang === 'string' && L[currentLang]) ? currentLang : 'it'; } catch (e) { return 'it'; } };
+  const U = k => L[lang()][k];
+  const TX = k => { const d = C.texts[lang()] || C.texts.it; return d[k] || C.texts.it[k] || ''; };
+  const q = s => typeof s === 'function' ? s() : typeof s === 'string' ? document.querySelector(s) : s;
+  const safe = f => { try { return f && f(); } catch (e) { console.error('[tutorial]', e); } };
+  const fire = (e, t) => e.dispatchEvent(new Event(t, { bubbles:true }));
+  const CANCEL = {};
+
+  // ---- pulsante "Tutorial" nella barra in alto ----
+  const btn = document.createElement('button');
+  btn.type = 'button'; btn.className = 'tut-btn'; btn.id = 'tutBtn';
+  btn.innerHTML = '<i>▶</i><span></span>';
+  const bar0 = document.querySelector('.settings-bar'), themeBtn = document.getElementById('themeToggle');
+  if (bar0 && themeBtn && themeBtn.parentNode === bar0) bar0.insertBefore(btn, themeBtn); else document.body.appendChild(btn);
+  const setBtnLabel = () => { btn.querySelector('span').textContent = U('btn'); };
+  setBtnLabel();
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setTimeout(setBtnLabel, 0)));
+
+  // ---- elementi del player ----
+  const root = document.createElement('div'); root.id = 'tutRoot'; root.hidden = true;
+  root.innerHTML = '<div class="tut-block"></div><div class="tut-spot none"></div>' +
+    '<div class="tut-cur"><svg viewBox="0 0 26 26"><path d="M4 2 L4 21 L9.2 16.4 L12.6 24 L16 22.5 L12.7 15 L19.5 14.6 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg></div>' +
+    '<div class="tut-bar" role="dialog" aria-live="polite"><div class="tut-prog"><b></b></div><div class="tut-body">' +
+    '<div class="tut-kick"><span class="tut-k"></span><span class="tut-n"></span></div><div class="tut-text"></div>' +
+    '<div class="tut-ctl"><button type="button" class="tut-prev" aria-label="Indietro">⏮</button><button type="button" class="tut-pp" aria-label="Pausa">❚❚</button>' +
+    '<button type="button" class="tut-next" aria-label="Avanti">⏭</button><button type="button" class="tut-x"></button></div></div></div>';
+  document.body.appendChild(root);
+  const spot = root.querySelector('.tut-spot'), cursor = root.querySelector('.tut-cur'), bar = root.querySelector('.tut-bar');
+  const elText = root.querySelector('.tut-text'), elN = root.querySelector('.tut-n'), elProg = root.querySelector('.tut-prog b'), elPP = root.querySelector('.tut-pp');
+
+  let active = false, paused = false, token = 0, idx = 0, snap = null, ov = null;
+  let targetFn = null, curFn = null, box = null, cur = { x:0, y:0 }, frameN = 0;
+
+  function frame(){
+    if (!active) return;
+    const t = targetFn ? safe(targetFn) : null;
+    let r;
+    if (t && t.isConnected && t.getClientRects().length) {
+      const b = t.getBoundingClientRect();
+      r = { x:b.left - 6, y:b.top - 6, w:b.width + 12, h:b.height + 12 };
+      spot.classList.remove('none');
+    } else { r = { x:innerWidth / 2, y:innerHeight / 2, w:0, h:0 }; spot.classList.add('none'); }
+    if (!box) box = r; else ['x','y','w','h'].forEach(k => { box[k] += (r[k] - box[k]) * 0.2; });
+    spot.style.left = box.x + 'px'; spot.style.top = box.y + 'px'; spot.style.width = box.w + 'px'; spot.style.height = box.h + 'px';
+    const p = curFn ? safe(curFn) : null;
+    if (p) { cur.x += (p.x - cur.x) * 0.17; cur.y += (p.y - cur.y) * 0.17; }
+    cursor.style.transform = 'translate(' + (cur.x - 4) + 'px,' + (cur.y - 2) + 'px)';
+    if (++frameN % 20 === 0 && r.w) bar.classList.toggle('top', (r.y + r.h / 2) > innerHeight * 0.52);
+    requestAnimationFrame(frame);
+  }
+  function sleep(ms, tk){
+    return new Promise((res, rej) => {
+      let t = 0;
+      const id = setInterval(() => {
+        if (tk !== token) { clearInterval(id); rej(CANCEL); return; }
+        if (!paused) t += 50;
+        if (t >= ms) { clearInterval(id); res(); }
+      }, 50);
+    });
+  }
+  function reveal(e){
+    if (!e || !e.getBoundingClientRect) return;
+    const b = e.getBoundingClientRect();
+    if (b.top < 70 || b.bottom > innerHeight - 190) e.scrollIntoView({ block: b.height > innerHeight * 0.6 ? 'start' : 'center', behavior:'smooth' });
+  }
+  function ripple(){
+    const r = document.createElement('div'); r.className = 'tut-rip';
+    r.style.left = cur.x + 'px'; r.style.top = cur.y + 'px';
+    root.appendChild(r); setTimeout(() => r.remove(), 600);
+  }
+  const api = tk => ({
+    $: q,
+    wait: ms => sleep(ms, tk),
+    spot: s => { targetFn = () => q(s); reveal(q(s)); },
+    async point(s){
+      reveal(q(s)); await sleep(250, tk);
+      curFn = () => { const e = q(s); if (!e) return null; const b = e.getBoundingClientRect(); return { x:b.left + b.width / 2, y:b.top + b.height / 2 }; };
+      cursor.classList.add('on'); await sleep(700, tk);
+    },
+    async click(s){ await this.point(s); ripple(); await sleep(170, tk); const e = q(s); if (e) e.click(); await sleep(380, tk); },
+    async type(s, val){
+      await this.point(s); ripple();
+      const e = q(s); if (!e) return;
+      e.value = ''; fire(e, 'input'); await sleep(200, tk);
+      let acc = '';
+      for (const ch of String(val)) {
+        acc += ch;
+        if (/[.,]$/.test(acc)) continue;          // i campi numerici rifiutano "2."
+        const e2 = q(s); if (!e2) return;
+        e2.value = acc; fire(e2, 'input'); await sleep(130, tk);
+      }
+      await sleep(260, tk);
+    }
+  });
+
+  function showStep(i){
+    const n = C.steps.length;
+    elText.textContent = TX(C.steps[i].text);
+    elN.textContent = (i + 1) + ' / ' + n;
+    root.querySelector('.tut-k').textContent = U('kick');
+    root.querySelector('.tut-x').textContent = U('close');
+    elProg.style.width = ((i + 1) / n * 100) + '%';
+  }
+  async function runStep(i){
+    const tk = ++token; idx = i;
+    const st = C.steps[i];
+    showStep(i);
+    curFn = null; cursor.classList.remove('on');
+    try {
+      if (st.before) safe(st.before);
+      targetFn = st.el ? () => q(st.el) : null;
+      if (st.el) { reveal(q(st.el)); await sleep(650, tk); } else await sleep(300, tk);
+      if (st.run) { try { await st.run(api(tk)); } catch (e) { if (e === CANCEL) throw e; console.error('[tutorial]', e); } }
+      cursor.classList.remove('on');
+      await sleep(st.hold || (1900 + TX(st.text).length * 42), tk);
+      if (i + 1 < C.steps.length) runStep(i + 1); else finish();
+    } catch (e) { if (e !== CANCEL) console.error('[tutorial]', e); }
+  }
+  function setPaused(p){ paused = p; elPP.textContent = p ? '▶' : '❚❚'; }
+  function closeOv(){ if (ov) { ov.remove(); ov = null; } }
+  function card(title, text, a, b, onA, onB){
+    closeOv();
+    ov = document.createElement('div'); ov.className = 'tut-ov';
+    ov.innerHTML = '<div class="tut-card" role="dialog" aria-modal="true"><div class="tut-play">▶</div><h3></h3><p></p>' +
+      '<div class="tut-acts"><button type="button"></button><button type="button" class="pri"></button></div></div>';
+    ov.querySelector('h3').textContent = title; ov.querySelector('p').textContent = text;
+    const bs = ov.querySelectorAll('button');
+    bs[0].textContent = b; bs[1].textContent = a;
+    bs[0].addEventListener('click', onB); bs[1].addEventListener('click', onA);
+    document.body.appendChild(ov); bs[1].focus();
+  }
+  function start(){
+    closeOv();
+    if (!active) snap = safe(C.snapshot);
+    safe(C.prepare);
+    window.scrollTo(0, 0);
+    box = null; cur = { x:innerWidth / 2, y:innerHeight * 0.45 }; targetFn = null; curFn = null;
+    setPaused(false); bar.style.display = '';
+    root.hidden = false;
+    if (!active) { active = true; requestAnimationFrame(frame); }
+    runStep(0);
+  }
+  function stop(){
+    token++; closeOv();
+    active = false; root.hidden = true;
+    safe(() => C.restore && C.restore(snap)); snap = null;
+    window.scrollTo(0, 0);
+  }
+  function finish(){
+    token++; targetFn = null; curFn = null; cursor.classList.remove('on'); bar.style.display = 'none';
+    card(U('eTitle'), U('eText'), U('close'), U('replay'), stop, start);
+  }
+  function welcome(){
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    card(U('wTitle'), U('wText'), U('watch'), U('skip'), start, closeOv);
+  }
+  btn.addEventListener('click', start);
+  root.querySelector('.tut-x').addEventListener('click', stop);
+  elPP.addEventListener('click', () => setPaused(!paused));
+  root.querySelector('.tut-prev').addEventListener('click', () => { setPaused(false); runStep(Math.max(0, idx - 1)); });
+  root.querySelector('.tut-next').addEventListener('click', () => { setPaused(false); if (idx + 1 < C.steps.length) runStep(idx + 1); else finish(); });
+  document.addEventListener('keydown', e => {
+    if (!active) return;
+    if (e.key === 'Escape') stop();
+    else if (e.key === ' ' && !ov) { e.preventDefault(); setPaused(!paused); }
+    else if (e.key === 'ArrowRight' && !ov) root.querySelector('.tut-next').click();
+    else if (e.key === 'ArrowLeft' && !ov) root.querySelector('.tut-prev').click();
+  });
+
+  // ---- primo utilizzo: proposta automatica (una sola volta per dispositivo) ----
+  const KEY = 'caffini_tutorial_' + C.id + '_v1';
+  let seen = false;
+  try { seen = localStorage.getItem(KEY) === '1'; } catch (e) {}
+  const force = /[?&#]tutorial\b/.test(location.search + location.hash);
+  if (!seen || force) setTimeout(welcome, 700);
+  window.CAFFINI_TOUR_START = start;
+})();
+</script>
+
 </body>
 </html>
